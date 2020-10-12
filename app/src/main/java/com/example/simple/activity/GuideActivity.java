@@ -1,4 +1,4 @@
-package com.example.simple;
+package com.example.simple.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,23 +6,26 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
-import android.content.IntentFilter;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.simple.R;
 import com.example.simple.adapter.ViewPagerAdapter;
 import com.example.simple.fragment.GuideFragment;
 import com.example.simple.net.NetCall;
 import com.example.simple.net.NetRequest;
+import com.example.simple.utils.DataKeys;
+import com.example.simple.utils.MyTools;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,11 +55,14 @@ public class GuideActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.guide_layout);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        //屏幕常亮为了轮播，慎用
-        inView();
-        startRequest();
+        if ((boolean)MyTools.getInstance().getData(DataKeys.isFirst,true)){
+            setContentView(R.layout.guide_layout);
+            inView();
+            startRequest();
+        }else {
+            startActivity(new Intent(this,MainActivity.class));
+            finish();
+        }
     }
     private void addView(){
         point_layout.removeAllViews();
@@ -121,7 +127,7 @@ public class GuideActivity extends AppCompatActivity {
                                 }
                                 setPager();
                                 addView();
-                                handler.sendEmptyMessageDelayed(0, time);
+                                //handler.sendEmptyMessageDelayed(0, time);
                             }
 
                         } catch (JSONException e) {
@@ -131,6 +137,7 @@ public class GuideActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Throwable t) {
+
                     }
                 }).start();
     }

@@ -12,4 +12,11 @@
         android:text="网络设置"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+    <Button
+        android:layout_below="@id/setting"
+        android:layout_alignParentRight="true"
+        android:id="@+id/enter_bt"
+        android:text="进入主页"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>

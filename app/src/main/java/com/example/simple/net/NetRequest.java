@@ -3,6 +3,9 @@ package com.example.simple.net;
 import android.app.ProgressDialog;
 import android.content.Context;
 
+import com.example.simple.utils.DataKeys;
+import com.example.simple.utils.MyTools;
+
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -56,8 +59,10 @@ public class NetRequest extends Thread {
     @Override
     public void run() {
         do {
+            String ip= (String) MyTools.getInstance().getData(DataKeys.IP_ADDRESS,"192.168.43.110");
+            String port= (String) MyTools.getInstance().getData(DataKeys.PORT,"8080");
             Retrofit retrofit=new Retrofit.Builder()
-                    .baseUrl("http://192.168.43.110:8080/mobileA/")//只有这里地址加上“/”
+                    .baseUrl("http://"+ip +":"+port+"/mobileA/")//只有这里地址加上“/”
                     //.addConverterFactory(GsonConverterFactory.create())
                     .build();
             NetClient client=retrofit.create(NetClient.class);
@@ -70,7 +75,7 @@ public class NetRequest extends Thread {
             call.enqueue(new Callback<ResponseBody>() {
                 @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-
+                    //为什么要关闭防火墙？？？
                     String result = null;
                     try {
                         result = response.body().string();

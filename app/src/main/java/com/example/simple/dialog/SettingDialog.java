@@ -1,6 +1,7 @@
 package com.example.simple.dialog;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,32 +13,28 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.simple.R;
+import com.example.simple.utils.DataKeys;
+import com.example.simple.utils.MyTools;
 
 public class SettingDialog extends DialogFragment {
     private View view;
-    private EditText address_et,port_et;
-    private Button save_bt,enter_bt,cancel_bt;
+    private EditText address_et, port_et;
+    private Button save_bt, cancel_bt;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Window window= getDialog().getWindow();
+        Window window = getDialog().getWindow();
         window.requestFeature(Window.FEATURE_NO_TITLE);
-
         getDialog().setCanceledOnTouchOutside(false);
-
-        DisplayMetrics dm = getResources().getDisplayMetrics();
-        int height = dm.heightPixels;
-        int width = dm.widthPixels;
-        //window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//注意此处
-        //window.setLayout(width/2, height/2);//这2行,和上面的一样,注意顺序就行;
-        Log.d("1111111111111111", "onCreateView: "+height+width);
-        view=inflater.inflate(R.layout.setting_dialog,container,false);
+        view = inflater.inflate(R.layout.setting_dialog, container, false);
         return view;
     }
 
@@ -45,23 +42,19 @@ public class SettingDialog extends DialogFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         inView();
-        Log.d("1111111111111111", "onActivityCreated: ");
-        address_et.setOnClickListener(new View.OnClickListener() {
+        save_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String address=address_et.getText().toString().trim();
-
-            }
-        });
-        port_et.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String port=port_et.getText().toString().trim();
-                if (!port.equals("")){
-                    int index=Integer.parseInt(port);
-                    if (index>0&&index<65535){
-
-                    }
+                String address = address_et.getText().toString().trim();
+                String port = port_et.getText().toString().trim();
+                if (!decideAddress(address)) {
+                    Toast.makeText(getContext(), "请输入正确的IP地址" , Toast.LENGTH_SHORT).show();
+                } else if (!decidePort(port)){
+                    Toast.makeText(getContext(), "请输入正确的端口号", Toast.LENGTH_SHORT).show();
+                }else {
+                    MyTools.getInstance().setData(DataKeys.IP_ADDRESS,address);
+                    MyTools.getInstance().setData(DataKeys.PORT,port);
+                    Toast.makeText(getContext(), "保存成功", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -72,36 +65,49 @@ public class SettingDialog extends DialogFragment {
             }
         });
     }
-    private boolean decideAddress(String ip){
-        boolean is = false;
-        if (ip==null||ip.equals("")){
-            is=false;
-        }else {
-            String[] address=ip.split("\\.");
-            if (address.length==4){
-                if (address[0].equals("0")){
-                    is=false;
-                }else {
-                    for (String s : address) {
-                        int index = Integer.parseInt(s);
-                        if (index < 0 || index > 255) {
-                            is = false;
-                            break;
-                        } else {
-                            is = true;
-                        }
-                    }
-                }
+    private boolean decidePort(String port){
+        boolean is=false;
+        if (port!=null&&!port.equals("")){
+            int index=Integer.parseInt(port);
+            if (index>0&&index<65535){
+                is=true;
             }
         }
         return is;
     }
-    private void inView(){
-        address_et=view.findViewById(R.id.address_et);
-        port_et=view.findViewById(R.id.port_et);
-        save_bt=view.findViewById(R.id.save_bt);
-        enter_bt=view.findViewById(R.id.enter_bt);
-        cancel_bt=view.findViewById(R.id.cancel_bt);
+    private boolean decideAddress(String str) {
+        boolean is=true;
+        String[] ip=str.split("\\.");
+        if (ip.length==4){
+            if (Integer.parseInt(ip[0])>255||ip[0].equals("0")||Integer.parseInt(ip[0])<0){
+                is=false;
+            }else {
+                for (int i=1;i<ip.length;i++){
+                    if (Integer.parseInt(ip[i])>255||Integer.parseInt(ip[i])<0){
+                        is=false;
+                        break;
+                    }else {
+                        is=true;
+                    }
+                }
+            }
+
+        }else {
+            is=false;
+        }
+        return is;
+
+    }
+
+    private void inView() {
+        address_et = view.findViewById(R.id.address_et);
+        port_et = view.findViewById(R.id.port_et);
+        save_bt = view.findViewById(R.id.save_bt);
+        cancel_bt = view.findViewById(R.id.cancel_bt);
+        String ip= (String) MyTools.getInstance().getData(DataKeys.IP_ADDRESS,"192.168.43.110");
+        String port= (String) MyTools.getInstance().getData(DataKeys.PORT,"8080");
+        address_et.setText(ip);
+        port_et.setText(port);
     }
 
     @Override
