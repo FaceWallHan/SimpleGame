@@ -10,7 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.SearchWebActivity"
+            android:screenOrientation="landscape"/>
         <activity android:name=".activity.MainActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".activity.SearchNewsActivity"
             android:screenOrientation="landscape"/>
         <activity android:name=".activity.GuideActivity"
             android:screenOrientation="landscape">

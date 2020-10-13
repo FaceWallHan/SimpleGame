@@ -9,8 +9,12 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.simple.R;
+import com.example.simple.fragment.HomeFragment;
 
 import org.litepal.LitePal;
 
@@ -19,16 +23,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
-        EditText search=findViewById(R.id.search);
-        search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                if (i== EditorInfo.IME_ACTION_SEARCH){
-                    
-                    return true;
-                }
-                return false;
-            }
-        });
+        replaceFragment(new HomeFragment());
+        Log.d("111111111111111111", "MainActivity: ");
+    }
+    private void replaceFragment(Fragment fragment){
+        FragmentManager manager=getSupportFragmentManager();
+        FragmentTransaction transaction=manager.beginTransaction();
+        transaction.replace(R.id.frame,fragment);
+        transaction.commit();
     }
 }
