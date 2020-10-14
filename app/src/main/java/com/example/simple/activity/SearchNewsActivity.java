@@ -37,7 +37,6 @@ public class SearchNewsActivity extends AppCompatActivity {
         search_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.d("111111111111111", "onItemClick: "+i);
                 Intent intent=new Intent(SearchNewsActivity.this,SearchWebActivity.class);
                 BeanNews beanNews=list.get(i);
                 intent.putExtra("searchWeb",beanNews.getUrl());
@@ -48,16 +47,20 @@ public class SearchNewsActivity extends AppCompatActivity {
     private void inView(){
         TextView search_tv=findViewById(R.id.search_tv);
         search_list=findViewById(R.id.search_list);
+        Intent intent=getIntent();
         if (getIntent().getStringExtra("search")==null){
             value="";
+        }else {
+            value=getIntent().getStringExtra("search");
         }
+        Log.d("11111111111111", "inView: "+intent.getStringExtra("asdfg"));
         String news=value+"新闻";
         search_tv.setText(news);
         list=new ArrayList<>();
     }
     private void startNewsListRequest(){
         NetRequest request=new NetRequest();
-        request.setUrl("getNEWsList")
+        request.setUrl("getNewsByKeys")
                 .addValue("keys",value)
                 .setNetCall(new NetCall() {
                     @Override
@@ -78,7 +81,6 @@ public class SearchNewsActivity extends AppCompatActivity {
                                 }
                                 SearchNewsAdapter adapter=new SearchNewsAdapter(SearchNewsActivity.this,list);
                                 search_list.setAdapter(adapter);
-                                Log.d("1111111111111111", "onSuccess: "+list.size());
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -2,6 +2,7 @@ package com.example.simple.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +23,9 @@ import com.example.simple.utils.MyTools;
 public class GuideFragment extends Fragment {
     private View view;
     private String imageUrl;
-    private boolean isLast;
+    private boolean isLast=false;
 
-    public GuideFragment(String imageUrl,boolean isLast) {
+    public GuideFragment(String imageUrl, boolean isLast) {
         this.imageUrl = imageUrl;
         this.isLast=isLast;
     }
