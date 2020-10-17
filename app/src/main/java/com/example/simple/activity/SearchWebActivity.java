@@ -24,4 +24,9 @@ public class SearchWebActivity extends AppCompatActivity {
         search_web.loadUrl(webUrl);
         search_web.getSettings().setJavaScriptEnabled(true);
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

@@ -2,6 +2,7 @@ package com.example.simple.net;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.util.Log;
 
 import com.example.simple.utils.DataKeys;
 import com.example.simple.utils.MyTools;
@@ -59,26 +60,21 @@ public class NetRequest extends Thread {
     @Override
     public void run() {
         do {
-            String ip= (String) MyTools.getInstance().getData(DataKeys.IP_ADDRESS,"192.168.43.110");
-            String port= (String) MyTools.getInstance().getData(DataKeys.PORT,"8080");
-            Retrofit retrofit=new Retrofit.Builder()
-                    .baseUrl("http://"+ip +":"+port+"/mobileA/")//只有这里地址加上“/”
-                    //.addConverterFactory(GsonConverterFactory.create())
-                    .build();
-            NetClient client=retrofit.create(NetClient.class);
-            Call<ResponseBody> call=null;
-            if (objectMap.size()==0){
-                call=client.getResource(url);
-            }else {
-                call=client.getResource(url,objectMap);
-            }
+//            String ip= (String) MyTools.getInstance().getData(DataKeys.IP_ADDRESS,"192.168.43.110");
+//            String port= (String) MyTools.getInstance().getData(DataKeys.PORT,"8080");
+//            Retrofit retrofit=new Retrofit.Builder()
+//                    .baseUrl("http://"+ip +":"+port+"/mobileA/")//只有这里地址加上“/”
+//                    //.addConverterFactory(GsonConverterFactory.create())
+//                    .build();
+//            NetClient client=retrofit.create(NetClient.class);
+            Call<ResponseBody> call=RetrofitClient.getInstance().getApi().getResource(url,objectMap);
             call.enqueue(new Callback<ResponseBody>() {
                 @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                     //为什么要关闭防火墙？？？
-                    String result = null;
+                     //result = null;
                     try {
-                        result = response.body().string();
+                        String result = response.body().string();
                         JSONObject jsonObject=new JSONObject(result);
                         netCall.onSuccess(jsonObject);
                     } catch (Exception e) {
