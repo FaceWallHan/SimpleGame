@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class VolleyTo extends Thread{
     //https://api.uomg.com/api/
     //http://192.168.43.110:8080/mobileA/
-    private String Url="http://192.168.43.110:8080/mobileA/";
+    private String Url="http://118.190.26.201:8080/mobileA/";
     private JSONObject jsonObject=new JSONObject();
     private int Time;
     private boolean isLoop;
