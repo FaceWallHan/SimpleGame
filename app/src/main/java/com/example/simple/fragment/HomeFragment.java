@@ -22,6 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.simple.AppClient;
 import com.example.simple.R;
 import com.example.simple.activity.SearchNewsActivity;
 import com.example.simple.adapter.ServicesTypeAdapter;
@@ -37,7 +38,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
 
 public class HomeFragment extends Fragment {
     private View view;
@@ -46,6 +49,16 @@ public class HomeFragment extends Fragment {
     private GridView entrance;
     private List<BeanServiceType> serviceTypeList;
     private ServicesTypeAdapter typeAdapter;
+    private AppClient client;
+    private ChangeFragment changeFragment;
+    public interface ChangeFragment{
+        void change();
+    }
+
+    public void setChangeFragment(ChangeFragment changeFragment) {
+        this.changeFragment = changeFragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,6 +70,7 @@ public class HomeFragment extends Fragment {
         flipper=view.findViewById(R.id.flipper);
         entrance=view.findViewById(R.id.entrance);
         serviceTypeList=new ArrayList<>();
+        client= (AppClient) getActivity().getApplication();
 
     }
     @SuppressLint("ClickableViewAccessibility")
@@ -95,12 +109,22 @@ public class HomeFragment extends Fragment {
                             try {
                                 if (jsonObject.getString("RESULT").equals("S")){
                                     TypeToken<List<BeanServiceType>> token=new TypeToken<List<BeanServiceType>>(){};
-                                    List<BeanServiceType> serviceTypes=new Gson().fromJson(jsonObject.getString("ROWS_DETAIL"),token.getType());
+                                    String json=jsonObject.getString("ROWS_DETAIL");
+                                    List<BeanServiceType> serviceTypes=new Gson().fromJson(json,token.getType());
+                                    client.getListMap().put(serviceType,serviceTypes);
                                     serviceTypeList.addAll(serviceTypes);
                                     //利用Gson转换List<T>
-                                    //Log.d("11111111111111", "onSuccess: "+serviceTypeList.size());
-                                    //typeAdapter.notifyDataSetChanged();
+                                    Collections.sort(serviceTypeList,new BeanServiceType.serviceIdDesc());
+                                    if (serviceTypeList.size()>10){
+                                        serviceTypeList=serviceTypeList.subList(0,10);
+                                    }
                                     typeAdapter=new ServicesTypeAdapter(view.getContext(),serviceTypeList);
+                                    typeAdapter.setListener(new ServicesTypeAdapter.MoreListener() {
+                                        @Override
+                                        public void listen() {
+                                            changeFragment.change();
+                                        }
+                                    });
                                     entrance.setAdapter(typeAdapter);
                                 }
                             } catch (JSONException e) {
@@ -122,11 +146,11 @@ public class HomeFragment extends Fragment {
                     public void onSuccess(JSONObject jsonObject) {
                         try {
                             if (jsonObject.getString("RESULT").equals("S")){
-//                                typeAdapter=new ServicesTypeAdapter(view.getContext(),serviceTypeList);
-//                                entrance.setAdapter(typeAdapter);
                                 JSONArray array = new JSONArray(jsonObject.getString("ROWS_DETAIL"));
                                 for (int i = 0; i < array.length(); i++) {
-                                    startServiceRequest(array.getString(i));
+                                    String type=array.getString(i);
+                                    client.getTypeList().add(type);
+                                    startServiceRequest(type);
                                 }
                             }
                         } catch (JSONException e) {

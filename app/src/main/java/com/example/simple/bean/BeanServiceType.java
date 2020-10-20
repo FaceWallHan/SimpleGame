@@ -1,5 +1,7 @@
 package com.example.simple.bean;
 
+import java.util.Comparator;
+
 public class BeanServiceType {
     /**
      * "serviceid": 3,
@@ -61,5 +63,11 @@ public class BeanServiceType {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+    public static class serviceIdDesc implements Comparator<BeanServiceType> {
+        @Override
+        public int compare(BeanServiceType t0, BeanServiceType t1) {
+            return t0.getServiceId()-t1.getServiceId();
+        }
     }
 }

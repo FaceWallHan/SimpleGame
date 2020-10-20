@@ -7,11 +7,13 @@
     <ImageView
         android:id="@+id/entrance_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="0dp"
+        android:layout_weight="5"/>
     <TextView
         android:gravity="center"
-        android:textSize="10dp"
+        android:textSize="10sp"
         android:id="@+id/entrance_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 </LinearLayout>

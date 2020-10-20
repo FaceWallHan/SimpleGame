@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.simple.R;
+import com.example.simple.fragment.ApplyServiceFragment;
 import com.example.simple.fragment.HomeFragment;
 
 import org.litepal.LitePal;
@@ -23,7 +24,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
-        replaceFragment(new HomeFragment());
+        HomeFragment homeFragment = new HomeFragment();
+        homeFragment.setChangeFragment(new HomeFragment.ChangeFragment() {
+            @Override
+            public void change() {
+                replaceFragment(new ApplyServiceFragment());
+            }
+        });
+        replaceFragment(homeFragment);
     }
     private void replaceFragment(Fragment fragment){
         FragmentManager manager=getSupportFragmentManager();

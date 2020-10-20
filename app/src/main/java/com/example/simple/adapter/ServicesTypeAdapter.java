@@ -20,12 +20,20 @@ import java.util.List;
 public class ServicesTypeAdapter extends ArrayAdapter<BeanServiceType> {
     private List<BeanServiceType>typeList;
     private LayoutInflater inflater;
-    public ServicesTypeAdapter(@NonNull Context context, List<BeanServiceType>typeList) {
-        super(context, 0);
-        this.typeList=typeList;
-        inflater=LayoutInflater.from(context);
+    private MoreListener listener;
+
+    public void setListener(MoreListener listener) {
+        this.listener = listener;
     }
 
+    public ServicesTypeAdapter(@NonNull Context context, List<BeanServiceType>typeList) {
+        super(context, 0);
+        inflater=LayoutInflater.from(context);
+        this.typeList=typeList;
+    }
+    public interface MoreListener{
+        void listen();
+    }
     @Override
     public int getCount() {
         return typeList.size();
@@ -50,13 +58,19 @@ public class ServicesTypeAdapter extends ArrayAdapter<BeanServiceType> {
             holder= (ViewHolder) convertView.getTag();
         }
         if (position==9){
-            Glide.with(parent.getContext()).load(serviceType.getIcon()).into(holder.entrance_image);
+            Glide.with(parent.getContext()).load(R.drawable.more_service).into(holder.entrance_image);
             holder.entrance_text.setText("更多");
+            holder.entrance_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.listen();
+                }
+            });
         }else {
             Glide.with(parent.getContext()).load(serviceType.getIcon()).into(holder.entrance_image);
             holder.entrance_text.setText(serviceType.getServiceName());
-        }
 
+        }
         return convertView;
     }
 
