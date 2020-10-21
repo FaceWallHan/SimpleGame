@@ -2,5 +2,10 @@
     <string name="app_name" translatable="false">智慧城市</string>
     <string name="search" translatable="false">搜索新闻</string>
     <string name="empty_news">暂无新闻</string>
+    <string name="main">首页</string>
+    <string name="all_service">全部服务</string>
+    <string name="party">智慧党建</string>
+    <string name="news">新闻</string>
+    <string name="personal">个人中心</string>
     <integer name="slide_time">2000</integer>
 </resources>

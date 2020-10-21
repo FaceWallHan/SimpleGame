@@ -42,7 +42,9 @@ public class ApplyServiceFragment extends Fragment {
         Map<String, List<BeanServiceType>> map = client.getListMap();
         List<String> typeList = client.getTypeList();
         AllServiceAdapter serviceAdapter=new AllServiceAdapter(getContext(),map,typeList);
+
         all_service.setAdapter(serviceAdapter);
+
     }
     private void inView(){
         all_service=view.findViewById(R.id.all_service);

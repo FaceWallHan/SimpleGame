@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -36,17 +37,17 @@ public class AllServiceAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int i) {
-        return child.get(group.get(i)).size();
+        return 1;
     }
 
     @Override
     public Object getGroup(int i) {
-        return group.get(i);
+        return null;
     }
 
     @Override
     public Object getChild(int i, int i1) {
-        return child.get(group.get(i)).get(i1);
+        return null;
     }
 
     @Override
@@ -83,15 +84,10 @@ public class AllServiceAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         convertView=LayoutInflater.from(context).inflate(R.layout.service_item_layout,parent,false);
-//        ImageView service_image=convertView.findViewById(R.id.service_image);
-//        TextView service_text=convertView.findViewById(R.id.service_text);
-        BeanServiceType serviceType = child.get(group.get(groupPosition)).get(childPosition);
-//        Glide.with(context).load(serviceType.getIcon()).into(service_image);
-//        service_text.setText(serviceType.getServiceName());
-        LinearLayout child_layout=convertView.findViewById(R.id.child_layout);
-        LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(50,75);
-        child_layout.addView(addLayoutItem(serviceType),params);
-  //          child_layout.getChildCount();
+        GridView grid_service=convertView.findViewById(R.id.grid_service);
+        List<BeanServiceType> serviceTypes = child.get(group.get(groupPosition));
+        ServicesTypeAdapter adapter=new ServicesTypeAdapter(context,serviceTypes);
+        grid_service.setAdapter(adapter);
         return convertView;
     }
 
