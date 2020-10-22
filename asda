@@ -1,0 +1,59 @@
+[33mcommit 432e0ff113c17d6ffb461c7c1aadea6be0e66c59[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: FaceWallHan <1428528183@qq.com>
+Date:   Wed Oct 21 22:48:33 2020 +0800
+
+    解决ExpandListView想让childItem横向显示的问题，后用GridView显示全部Item解决，小试BottomNavigationView
+
+[33mcommit 42023e5fb8f3f99a5ef961e49a99b8f1727f2a93[m
+Author: FaceWallHan <1428528183@qq.com>
+Date:   Tue Oct 20 22:42:34 2020 +0800
+
+    半实现了ridview限制行数，复习expandlistview未完
+
+[33mcommit a43f75dad7c9a519f5874a205fa484886baefe4d[m
+Author: FaceWallHan <1428528183@qq.com>
+Date:   Sun Oct 18 22:47:32 2020 +0800
+
+    勉强显示各领域服务入口
+
+[33mcommit 9cd2dd7e499358c8fb3ece28ed63abe08250a135[m
+Author: FaceWallHan <1428528183@qq.com>
+Date:   Sat Oct 17 22:59:01 2020 +0800
+
+    自己写的retrofit和接口都有点小瑕疵吧
+
+[33mcommit 073e88453b6d532ad458d112a1d762c133a5c0f6[m
+Author: FaceWallHan <1428528183@qq.com>
+Date:   Wed Oct 14 23:04:17 2020 +0800
+
+    getIntentExtre居然出错？轮播
+
+[33mcommit 23a298b523aa5072b04f12a0420b0ef97d8dc0c4[m
+Author: FaceWallHan <1428528183@qq.com>
+Date:   Tue Oct 13 22:46:29 2020 +0800
+
+    搜索新闻功能
+
+[33mcommit eb3a151e486cb0016762c3e83916bdec5621aa90[m
+Author: FaceWallHan <1428528183@qq.com>
+Date:   Mon Oct 12 22:59:16 2020 +0800
+
+    IP规则
+
+[33mcommit 9600b89f09fef37e92c37ef66cb5e1a781135fd4[m
+Author: FaceWallHan <1428528183@qq.com>
+Date:   Sun Oct 11 23:00:30 2020 +0800
+
+    忽略了忽略文件
+
+[33mcommit a30e19e207efe32d5f489ca53d565eac574975f4[m
+Author: FaceWallHan <1428528183@qq.com>
+Date:   Sun Oct 11 22:54:35 2020 +0800
+
+    自动轮播
+
+[33mcommit 2c0b5185d3471ec9d76de0ab58438d183b559d23[m
+Author: FaceWallHan <67406937+FaceWallHan@users.noreply.github.com>
+Date:   Sun Oct 11 19:21:02 2020 +0800
+
+    Initial commit

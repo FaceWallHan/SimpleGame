@@ -1,5 +1,6 @@
 package com.example.simple.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,8 +17,7 @@ import com.example.simple.R;
 import com.example.simple.adapter.AllServiceAdapter;
 import com.example.simple.bean.BeanServiceType;
 
-import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.List;
 import java.util.Map;
 

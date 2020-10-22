@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.List;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
+    /**ViewPager2*/
     private List<Fragment> list;
     public ViewPagerAdapter(@NonNull FragmentManager fm,List<Fragment> list) {
         super(fm);

@@ -4,7 +4,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".AppClient"
         android:allowBackup="true"
@@ -13,9 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SearchWebActivity"/>
-        <activity android:name=".activity.MainActivity"/>
-        <activity android:name=".activity.SearchNewsActivity"/>
+
+        <activity android:name=".activity.SearchWebActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.SearchNewsActivity" />
         <activity android:name=".activity.GuideActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
