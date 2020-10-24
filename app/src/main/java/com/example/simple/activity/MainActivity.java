@@ -47,19 +47,17 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
         inView();
+        addItem();
         homeFragment = new HomeFragment();
         homeFragment.setChangeFragment(new HomeFragment.ChangeFragment() {
             @Override
             public void change() {
+                //通信方式
                 replaceFragment(new ApplyServiceFragment());
+                navigationView.selectTab(1);
             }
         });
-        addItem();
-        replaceFragment(fragmentList.get(0));
-
-        //多次切换fragment问题
-        //点击底部item 的风格问题
-
+        replaceFragment(homeFragment);
     }
     private void inView(){
         navigationView=findViewById(R.id.nav_bar);

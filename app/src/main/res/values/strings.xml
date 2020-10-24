@@ -7,5 +7,6 @@
     <string name="party">智慧党建</string>
     <string name="news">新闻</string>
     <string name="personal">个人中心</string>
+    <string name="theme">热门主题</string>
     <integer name="slide_time">2000</integer>
 </resources>

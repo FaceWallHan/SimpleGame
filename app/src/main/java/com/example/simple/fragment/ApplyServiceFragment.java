@@ -1,6 +1,7 @@
 package com.example.simple.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,7 +25,6 @@ import java.util.Map;
 public class ApplyServiceFragment extends Fragment {
     private View view;
     private ExpandableListView all_service;
-    private AppClient client;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,15 +39,13 @@ public class ApplyServiceFragment extends Fragment {
         addData();
     }
     private void addData(){
-        Map<String, List<BeanServiceType>> map = client.getListMap();
-        List<String> typeList = client.getTypeList();
+        Map<String, List<BeanServiceType>> map = AppClient.getInstance().getListMap();
+        List<String> typeList = AppClient.getInstance().getTypeList();
         AllServiceAdapter serviceAdapter=new AllServiceAdapter(getContext(),map,typeList);
-
         all_service.setAdapter(serviceAdapter);
 
     }
     private void inView(){
         all_service=view.findViewById(R.id.all_service);
-        client= (AppClient) getActivity().getApplication();
     }
 }
