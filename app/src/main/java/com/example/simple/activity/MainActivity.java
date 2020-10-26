@@ -1,5 +1,6 @@
 package com.example.simple.activity;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.example.simple.R;
 import com.example.simple.fragment.ApplyServiceFragment;
 import com.example.simple.fragment.HomeFragment;
+import com.example.simple.fragment.NewsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.navigation.NavigationView;
@@ -38,10 +40,13 @@ import java.util.List;
  * 还是先用BottomNavigationBar吧
  * */
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener {
+public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener,
+                                                                HomeFragment.ChangeFragment,
+                                                                TextView.OnEditorActionListener {
     private BottomNavigationBar navigationView;
     private HomeFragment homeFragment;
     private List<Fragment> fragmentList;
+    private EditText search;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +54,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         inView();
         addItem();
         homeFragment = new HomeFragment();
-        homeFragment.setChangeFragment(new HomeFragment.ChangeFragment() {
+        homeFragment.setChangeFragment(this);
+        homeFragment.setChangeNewsFragment(new HomeFragment.ChangeNewsFragment() {
             @Override
-            public void change() {
-                //通信方式
-                replaceFragment(new ApplyServiceFragment());
-                navigationView.selectTab(1);
+            public void transferData(int num, String type) {
+                //分别对应搜索和点击图片两种方式
+                if (num>0){
+                    replaceFragment(fragmentList.get(2));
+                    navigationView.selectTab(2);
+                }
             }
         });
         replaceFragment(homeFragment);
@@ -72,12 +80,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 .setFirstSelectedPosition(0)
                 .initialise();
         navigationView.setBackgroundColor(Color.BLUE);
-//        navigationView.selectTab();
         fragmentList=new ArrayList<>();
+        search=findViewById(R.id.search);
+        search.setOnEditorActionListener(this);
     }
     private void addItem(){
         fragmentList.add(new HomeFragment());
         fragmentList.add(new ApplyServiceFragment());
+        fragmentList.add(new NewsFragment());
     }
     private void replaceFragment(Fragment fragment){
         FragmentManager manager=getSupportFragmentManager();
@@ -107,5 +117,25 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         BottomNavigationItem item=new BottomNavigationItem(iconResource,string);
         item.setActiveColor(Color.BLUE);
         return item;
+    }
+
+    @Override
+    public void change() {
+        //通信方式
+        replaceFragment(new ApplyServiceFragment());
+        navigationView.selectTab(1);
+    }
+
+    @Override
+    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+        if (i== EditorInfo.IME_ACTION_SEARCH){
+            String str=search.getText().toString().trim();
+            //Intent对象重复导致**问题！！！
+            Intent intent=new Intent(MainActivity.this, SearchNewsActivity.class);
+            intent.putExtra("search",str);
+            startActivity(intent);
+            return true;
+        }
+        return true;
     }
 }

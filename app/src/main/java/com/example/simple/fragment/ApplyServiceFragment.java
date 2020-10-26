@@ -1,9 +1,6 @@
 package com.example.simple.fragment;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +25,7 @@ public class ApplyServiceFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.apply_service_layout,container,false);
+        view=inflater.inflate(R.layout.apply_service_fragment_layout,container,false);
         return view;
     }
 

@@ -47,17 +47,27 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
     private View view;
-    private EditText search;
+
     private ViewFlipper flipper;
     private GridView entrance,theme;
     private List<BeanServiceType> serviceTypeList;
     private ServicesTypeAdapter typeAdapter;
     private ChangeFragment changeFragment;
+    private ChangeNewsFragment changeNewsFragment;
+
+    public void setChangeNewsFragment(ChangeNewsFragment changeNewsFragment) {
+        this.changeNewsFragment = changeNewsFragment;
+    }
+
     private List<String> themeList;
     public interface ChangeFragment{
         //改变通信方式！
         void change();
     }
+    public interface ChangeNewsFragment{
+        void transferData(int num,String type);
+    }
+
 
     public void setChangeFragment(ChangeFragment changeFragment) {
         this.changeFragment = changeFragment;
@@ -70,7 +80,7 @@ public class HomeFragment extends Fragment {
         return view;
     }
     private void inView(){
-        search=view.findViewById(R.id.search);
+
         flipper=view.findViewById(R.id.flipper);
         entrance=view.findViewById(R.id.entrance);
         serviceTypeList=new ArrayList<>();
@@ -79,20 +89,7 @@ public class HomeFragment extends Fragment {
     }
     @SuppressLint("ClickableViewAccessibility")
     private void setClick(){
-        search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                if (i== EditorInfo.IME_ACTION_SEARCH){
-                    String str=search.getText().toString().trim();
-                    //Intent对象重复导致**问题！！！
-                    Intent intent=new Intent(view.getContext(), SearchNewsActivity.class);
-                    intent.putExtra("search",str);
-                    startActivity(intent);
-                    return true;
-                }
-                return true;
-            }
-        });
+
     }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -115,10 +112,6 @@ public class HomeFragment extends Fragment {
                                 themeStr=themeStr.substring(1).replace("]","").replace("\"","").trim();
                                 themeList=Arrays.asList(themeStr.split(","));
                                 theme.setAdapter(new AllThemeAdapter(view.getContext(),themeList));
-                                for (String s : themeList) {
-                                    Log.d("111111111", "onSuccess: " + s);
-                                }
-                                Log.d("11111111111", "onSuccess: "+themeList.size());
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -154,7 +147,9 @@ public class HomeFragment extends Fragment {
                                     typeAdapter.setListener(new ServicesTypeAdapter.MoreListener() {
                                         @Override
                                         public void listen() {
-                                            changeFragment.change();
+                                            if (getActivity()instanceof ChangeFragment){
+                                                ((ChangeFragment) getActivity()).change();
+                                            }
                                         }
                                     });
                                     entrance.setAdapter(typeAdapter);
@@ -237,11 +232,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 try {
-                    Intent intent=new Intent(view.getContext(),SearchNewsActivity.class);
-                    Bundle bundle=new Bundle();
-                    bundle.putString("imageNum",jsonObject.getString("num"));
-                    intent.putExtra("bundle",bundle);
-                    startActivity(intent);
+                    changeNewsFragment.transferData(jsonObject.getInt("num"),"");
+//                    Intent intent=new Intent(view.getContext(),SearchNewsActivity.class);
+//                    Bundle bundle=new Bundle();
+//                    bundle.putString("imageNum",jsonObject.getString("num"));
+//                    intent.putExtra("bundle",bundle);
+//                    startActivity(intent);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -3,6 +3,27 @@ package com.example.simple.bean;
 public class BeanNews {
     private int newsId;
     private String newsType,picture,content,title,url;
+    private String publicTime;
+    private String praiseCount;
+
+    public String getPublicTime() {
+        return publicTime;
+    }
+
+    public void setPublicTime(String publicTime) {
+        //发布时间
+        this.publicTime = publicTime;
+    }
+
+    public String getPraiseCount() {
+        return praiseCount;
+    }
+
+    public void setPraiseCount(String praiseCount) {
+        //评论数
+        this.praiseCount = praiseCount;
+    }
+
 
     public BeanNews() {
     }

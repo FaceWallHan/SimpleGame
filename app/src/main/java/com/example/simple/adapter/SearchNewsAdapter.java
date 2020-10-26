@@ -45,13 +45,17 @@ public class SearchNewsAdapter extends ArrayAdapter<BeanNews> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         convertView= inflater.inflate(R.layout.search_news_item_layout,parent,false);
         BeanNews beanNews=list.get(position);
-        TextView search_head=convertView.findViewById(R.id.search_head);
+        //TextView search_head=convertView.findViewById(R.id.search_head);
         TextView search_title=convertView.findViewById(R.id.search_title);
         TextView search_content=convertView.findViewById(R.id.search_content);
         ImageView search_picture=convertView.findViewById(R.id.search_picture);
-        search_head.setText(beanNews.getNewsId()+beanNews.getNewsType());
-        search_title.setText(beanNews.getTitle());
-        search_content.setText(beanNews.getContent());
+        //search_head.setText(beanNews.getNewsId()+beanNews.getNewsType());
+        String title=beanNews.getTitle();
+        if (title.length()>20){
+            title=title.substring(0,20)+"...";
+        }
+        search_title.setText(title);
+        search_content.setText(beanNews.getContent().substring(0,40)+"...");
         Glide.with(parent.getContext()).load(beanNews.getPicture()).into(search_picture);
         return convertView;
     }
