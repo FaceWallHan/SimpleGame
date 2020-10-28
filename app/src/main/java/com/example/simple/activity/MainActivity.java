@@ -131,9 +131,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         if (i== EditorInfo.IME_ACTION_SEARCH){
             String str=search.getText().toString().trim();
             //Intent对象重复导致**问题！！！
-            Intent intent=new Intent(MainActivity.this, SearchNewsActivity.class);
-            intent.putExtra("search",str);
-            startActivity(intent);
+//            Intent intent=new Intent(MainActivity.this, SearchNewsActivity.class);
+//            intent.putExtra("search",str);
+//            startActivity(intent);
+            replaceFragment(fragmentList.get(2));
+            navigationView.selectTab(2);
             return true;
         }
         return true;

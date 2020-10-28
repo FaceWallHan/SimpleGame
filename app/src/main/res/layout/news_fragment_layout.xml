@@ -4,10 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <HorizontalScrollView
-        android:id="@+id/horizontal_layout"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:background="#fff"
+            android:id="@+id/horizontal_layout"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
+        </LinearLayout>
     </HorizontalScrollView>
     <FrameLayout
         android:id="@+id/news_frame"

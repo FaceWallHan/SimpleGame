@@ -45,11 +45,11 @@ public class SearchNewsAdapter extends ArrayAdapter<BeanNews> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         convertView= inflater.inflate(R.layout.search_news_item_layout,parent,false);
         BeanNews beanNews=list.get(position);
-        //TextView search_head=convertView.findViewById(R.id.search_head);
         TextView search_title=convertView.findViewById(R.id.search_title);
         TextView search_content=convertView.findViewById(R.id.search_content);
+        TextView news_comment=convertView.findViewById(R.id.news_comment);
+        TextView news_time=convertView.findViewById(R.id.news_time);
         ImageView search_picture=convertView.findViewById(R.id.search_picture);
-        //search_head.setText(beanNews.getNewsId()+beanNews.getNewsType());
         String title=beanNews.getTitle();
         if (title.length()>20){
             title=title.substring(0,20)+"...";
@@ -57,6 +57,8 @@ public class SearchNewsAdapter extends ArrayAdapter<BeanNews> {
         search_title.setText(title);
         search_content.setText(beanNews.getContent().substring(0,40)+"...");
         Glide.with(parent.getContext()).load(beanNews.getPicture()).into(search_picture);
+        news_comment.setText(beanNews.getPraiseCount()+"评论");
+        news_time.setText(beanNews.getPublicTime());
         return convertView;
     }
 }

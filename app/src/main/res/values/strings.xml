@@ -8,5 +8,7 @@
     <string name="news">新闻</string>
     <string name="personal">个人中心</string>
     <string name="theme">热门主题</string>
+    <string name="comment">评论</string>
+    <string name="time">时间</string>
     <integer name="slide_time">2000</integer>
 </resources>

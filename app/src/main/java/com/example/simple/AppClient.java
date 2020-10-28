@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.simple.bean.BeanNews;
 import com.example.simple.bean.BeanServiceType;
 
 import org.litepal.LitePal;
@@ -24,6 +25,7 @@ public class AppClient extends LitePalApplication {
     private static RequestQueue requestQueue;
     private Map<String ,List<BeanServiceType>>child;
     private List<String>group;
+    private List<BeanNews> newsList;
 
     public static void add(JsonObjectRequest jsonObjectRequest) {
         requestQueue.add(jsonObjectRequest);
@@ -36,6 +38,11 @@ public class AppClient extends LitePalApplication {
         requestQueue= Volley.newRequestQueue(this);
         child=new HashMap<>();
         group=new ArrayList<>();
+        newsList=new ArrayList<>();
+    }
+
+    public List<BeanNews> getNewsList() {
+        return newsList;
     }
 
     public Map<String, List<BeanServiceType>> getListMap() {
