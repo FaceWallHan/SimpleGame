@@ -24,7 +24,6 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.example.simple.AppClient;
 import com.example.simple.R;
-import com.example.simple.activity.SearchNewsActivity;
 import com.example.simple.adapter.AllThemeAdapter;
 import com.example.simple.adapter.ServicesTypeAdapter;
 import com.example.simple.bean.BeanServiceType;

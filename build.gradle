@@ -10,12 +10,30 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
+    allprojects {
+        repositories {
+            maven {
+                url 'https://maven.aliyun.com/repository/public/'
+            }
+            mavenLocal()
+            mavenCentral()
+        }
+    }
 }
 
 allprojects {
     repositories {
         google()
         jcenter()
+    }
+    allprojects {
+        repositories {
+            maven {
+                url 'https://maven.aliyun.com/repository/public/'
+            }
+            mavenLocal()
+            mavenCentral()
+        }
     }
 }
 

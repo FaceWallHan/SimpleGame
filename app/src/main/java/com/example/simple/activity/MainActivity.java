@@ -25,6 +25,7 @@ import com.example.simple.R;
 import com.example.simple.fragment.ApplyServiceFragment;
 import com.example.simple.fragment.HomeFragment;
 import com.example.simple.fragment.NewsFragment;
+import com.example.simple.fragment.PersonalFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.navigation.NavigationView;
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         navigationView.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_RIPPLE);
         navigationView.addItem(addNavigationItem(R.drawable.main_icon,R.string.main))
                 .addItem(addNavigationItem(R.drawable.service_icon,R.string.all_service))
-                .addItem(addNavigationItem(R.drawable.party_icon,R.string.party))
+                //.addItem(addNavigationItem(R.drawable.party_icon,R.string.party))
                 .addItem(addNavigationItem(R.drawable.news_icon,R.string.news))
                 .addItem(addNavigationItem(R.drawable.user_icon,R.string.personal))
                 .setFirstSelectedPosition(0)
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         fragmentList.add(new HomeFragment());
         fragmentList.add(new ApplyServiceFragment());
         fragmentList.add(new NewsFragment());
+        fragmentList.add(new PersonalFragment());
     }
     private void replaceFragment(Fragment fragment){
         FragmentManager manager=getSupportFragmentManager();
