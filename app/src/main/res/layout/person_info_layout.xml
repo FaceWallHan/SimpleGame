@@ -4,30 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:background="@color/colorPrimary"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-        <ImageView
-            android:id="@+id/title_back"
-            android:src="@drawable/back"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
-        <TextView
-            android:gravity="center"
-            android:text="@string/personal_info"
-            android:textSize="20sp"
-            android:textColor="#fff"
-            android:layout_weight="4"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
-    </LinearLayout>
+    <include layout="@layout/modify_title_layout"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

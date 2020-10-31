@@ -6,4 +6,6 @@ public class DataKeys {
     public static final String isFirst="isFirst";
     public static final String imagePath="imagePath";
     public static final String imageUrl="imageUrl";
+    public static final String userName="userName";
+    public static final String passWord="passWord";
 }

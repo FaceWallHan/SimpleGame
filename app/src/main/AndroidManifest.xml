@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.simple">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,6 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <provider
+            android:grantUriPermissions="true"
+            android:exported="false"
+            android:authorities="com.start.head.activity"
+            android:name="androidx.core.content.FileProvider">
+            <meta-data android:resource="@xml/file_paths"
+                android:name="android.support.FILE_PROVIDER_PATHS"/>
+        </provider>
+        <activity android:name=".activity.ModifyPassWordActivity"/>
         <activity android:name=".activity.PersonInfoActivity"/>
         <activity android:name=".activity.SearchWebActivity" />
         <activity android:name=".activity.MainActivity" />

@@ -3,6 +3,9 @@ package com.example.simple.utils;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.example.simple.AppClient;
 
@@ -10,6 +13,8 @@ public class MyTools {
     private  static SharedPreferences preferences;
     private  static MyTools myTools;
     private static  SharedPreferences.Editor editor;
+    private static Toast toast;
+    private static AlertDialog.Builder builder;
     public synchronized static MyTools getInstance(){
         if (myTools==null){
             myTools=new MyTools();
@@ -60,5 +65,22 @@ public class MyTools {
         }
 
         return null;
+    }
+    @SuppressLint("ShowToast")
+    public  void showToast(String msg, Context context) {
+        if (toast == null) {
+            toast = Toast.makeText(context, msg, Toast.LENGTH_SHORT);
+        }
+        toast.setText(msg);
+        toast.show();
+    }
+    public void showDialog(String msg, Context context) {
+        if (builder==null){
+            builder=new AlertDialog.Builder(context);
+        }
+        builder.setTitle("提示");
+        builder.setMessage(msg);
+        builder.setPositiveButton("确定", null);
+        builder.show();
     }
 }
