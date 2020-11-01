@@ -25,6 +25,8 @@
         <activity android:name=".activity.ModifyPassWordActivity"/>
         <activity android:name=".activity.PersonInfoActivity"/>
         <activity android:name=".activity.SearchWebActivity" />
+        <activity android:name=".activity.OrderActivity"/>
+        <activity android:name=".activity.OrderInfoActivity"/>
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.GuideActivity">
             <intent-filter>

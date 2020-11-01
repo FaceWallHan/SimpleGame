@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">智慧城市</string>
     <string name="search" translatable="false">搜索新闻</string>
-    <string name="empty_news">暂无新闻</string>
+    <string name="empty_data">暂无数据</string>
     <string name="main">首页</string>
     <string name="all_service">全部服务</string>
     <string name="party">智慧党建</string>
@@ -26,6 +26,14 @@
     <string name="cancel">取消</string>
     <string name="determine">确定</string>
     <string name="input">请输入</string>
+    <string name="order_id">订单号</string>
+    <string name="order_type">订单类型</string>
+    <string name="order_date">订单生成日期</string>
+    <string name="order_cost">订单花费</string>
+    <string name="business">商家</string>
+    <string name="commodity">商品</string>
+    <string name="price">价格</string>
+    <string name="count">数量</string>
     <integer name="slide_time">2000</integer>
     <string-array name="sex_array">
         <item>男</item>

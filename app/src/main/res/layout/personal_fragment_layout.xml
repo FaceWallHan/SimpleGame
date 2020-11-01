@@ -37,6 +37,7 @@
         android:layout_weight="3"
         android:orientation="horizontal">
         <Button
+            style="@style/my_text"
             android:background="@drawable/bg_theme"
             android:id="@+id/personal_info"
             android:text="@string/personal_info"
@@ -45,6 +46,7 @@
             android:layout_height="match_parent"
             tools:ignore="NestedWeights" />
         <Button
+            style="@style/my_text"
             android:layout_marginStart="20sp"
             android:background="@drawable/bg_theme"
             android:id="@+id/personal_order"
@@ -60,6 +62,7 @@
         android:layout_weight="3"
         android:orientation="horizontal">
         <Button
+            style="@style/my_text"
             android:background="@drawable/bg_theme"
             android:id="@+id/personal_modify"
             android:text="@string/modify_password"
@@ -68,6 +71,7 @@
             android:layout_height="match_parent"
             tools:ignore="NestedWeights" />
         <Button
+            style="@style/my_text"
             android:layout_marginStart="20sp"
             android:background="@drawable/bg_theme"
             android:id="@+id/personal_back"

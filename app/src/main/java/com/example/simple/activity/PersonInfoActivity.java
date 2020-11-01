@@ -39,7 +39,7 @@ import java.io.IOException;
 
 import static org.litepal.LitePalApplication.getContext;
 
-public class PersonInfoActivity extends AppCompatActivity implements View.OnClickListener,
+public class PersonInfoActivity extends BaseActivity implements View.OnClickListener,
                                                     ImageDialog.OnCenterItemClickListener{
     private ImageView info_head;
     private TextView nickname,phone,identity;
@@ -58,6 +58,7 @@ public class PersonInfoActivity extends AppCompatActivity implements View.OnClic
         Intent intent=getIntent();
         userInfo=intent.getStringArrayExtra("userInfo");
         inView();
+        setTitle(getResources().getString(R.string.personal_info));
         assert userInfo != null;
         setData(userInfo);
 

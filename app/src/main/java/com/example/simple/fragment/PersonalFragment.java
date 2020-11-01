@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.example.simple.R;
 import com.example.simple.activity.ModifyPassWordActivity;
+import com.example.simple.activity.OrderActivity;
 import com.example.simple.activity.PersonInfoActivity;
 import com.example.simple.net.NetCall;
 import com.example.simple.net.VolleyTo;
@@ -114,6 +115,7 @@ public class PersonalFragment  extends Fragment implements View.OnClickListener 
                 }
                 break;
             case R.id.personal_order:
+                startActivity(new Intent(view.getContext(), OrderActivity.class));
                 break;
             case R.id.personal_modify:
                 startActivity(new Intent(view.getContext(), ModifyPassWordActivity.class));
