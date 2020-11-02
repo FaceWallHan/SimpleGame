@@ -1,5 +1,6 @@
 package com.example.simple.fragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,10 +19,13 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.example.simple.R;
 import com.example.simple.activity.ModifyPassWordActivity;
+import com.example.simple.activity.OpinionActivity;
 import com.example.simple.activity.OrderActivity;
 import com.example.simple.activity.PersonInfoActivity;
 import com.example.simple.net.NetCall;
 import com.example.simple.net.VolleyTo;
+import com.example.simple.utils.DataKeys;
+import com.example.simple.utils.MyTools;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -121,8 +125,17 @@ public class PersonalFragment  extends Fragment implements View.OnClickListener 
                 startActivity(new Intent(view.getContext(), ModifyPassWordActivity.class));
                 break;
             case R.id.personal_back:
+                startActivity(new Intent(view.getContext(), OpinionActivity.class));
                 break;
             case R.id.exit_login:
+                MyTools.getInstance().showDialog("是否确定退出登录？", view.getContext(), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        MyTools.getInstance().setData(DataKeys.passWord,"");
+//                        startActivity();
+//                        getActivity().finish();
+                    }
+                });
                 break;
             default:
                 break;

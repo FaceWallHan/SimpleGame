@@ -1,9 +1,12 @@
 package com.example.simple.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.simple.AppClient;
 import com.example.simple.R;
+import com.example.simple.activity.SubwayActivity;
 import com.example.simple.adapter.AllServiceAdapter;
 import com.example.simple.bean.BeanServiceType;
 
@@ -22,6 +26,8 @@ import java.util.Map;
 public class ApplyServiceFragment extends Fragment {
     private View view;
     private ExpandableListView all_service;
+    private Map<String, List<BeanServiceType>> map;
+    private List<String> typeList;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,13 +42,21 @@ public class ApplyServiceFragment extends Fragment {
         addData();
     }
     private void addData(){
-        Map<String, List<BeanServiceType>> map = AppClient.getInstance().getListMap();
-        List<String> typeList = AppClient.getInstance().getTypeList();
         AllServiceAdapter serviceAdapter=new AllServiceAdapter(getContext(),map,typeList);
         all_service.setAdapter(serviceAdapter);
+        serviceAdapter.setOnChildGridClickListener(new AllServiceAdapter.OnChildGridClickListener() {
+            @Override
+            public void OnOnChildGridClick(String type) {
+                if (type.equals("地铁查询")){
+                    startActivity(new Intent(view.getContext(), SubwayActivity.class));
+                }
+            }
+        });
 
     }
     private void inView(){
         all_service=view.findViewById(R.id.all_service);
+        map = AppClient.getInstance().getListMap();
+        typeList = AppClient.getInstance().getTypeList();
     }
 }

@@ -6,6 +6,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -23,13 +24,20 @@ public class AllServiceAdapter extends BaseExpandableListAdapter {
     private Context context;
     private Map<String , List<BeanServiceType>> child;
     private List<String>group;
+    private OnChildGridClickListener onChildGridClickListener;
+
+    public void setOnChildGridClickListener(OnChildGridClickListener onChildGridClickListener) {
+        this.onChildGridClickListener = onChildGridClickListener;
+    }
 
     public AllServiceAdapter(Context context, Map<String, List<BeanServiceType>> child, List<String> group) {
         this.context = context;
         this.child = child;
         this.group = group;
     }
-
+    public interface OnChildGridClickListener{
+        void OnOnChildGridClick(String type);
+    }
     @Override
     public int getGroupCount() {
         return group.size();
@@ -88,27 +96,19 @@ public class AllServiceAdapter extends BaseExpandableListAdapter {
         List<BeanServiceType> serviceTypes = child.get(group.get(groupPosition));
         ServicesTypeAdapter adapter=new ServicesTypeAdapter(context,serviceTypes);
         grid_service.setAdapter(adapter);
+        grid_service.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (onChildGridClickListener!=null){
+                    onChildGridClickListener.OnOnChildGridClick(serviceTypes.get(i).getServiceName());
+                }
+            }
+        });
         return convertView;
     }
 
     @Override
     public boolean isChildSelectable(int i, int i1) {
-        return false;
-    }
-    private LinearLayout addLayoutItem(BeanServiceType serviceType){
-        LinearLayout layout=new LinearLayout(context);
-        ImageView service_image=new ImageView(context);
-        TextView service_text=new TextView(context);
-        service_text.setGravity(Gravity.CENTER);
-        service_text.setTextSize(10);
-
-        Glide.with(context).load(serviceType.getIcon()).into(service_image);
-        service_text.setText(serviceType.getServiceName());
-
-        LinearLayout.LayoutParams imageParams=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,0,5);
-        LinearLayout.LayoutParams textParams=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,0,2);
-        layout.addView(service_image,imageParams);
-        layout.addView(service_text,textParams);
-        return layout;
+        return true;
     }
 }

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -24,6 +25,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.example.simple.AppClient;
 import com.example.simple.R;
+import com.example.simple.activity.SubwayActivity;
 import com.example.simple.adapter.AllThemeAdapter;
 import com.example.simple.adapter.ServicesTypeAdapter;
 import com.example.simple.bean.BeanServiceType;
@@ -44,7 +46,7 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements AdapterView.OnItemClickListener {
     private View view;
 
     private ViewFlipper flipper;
@@ -59,6 +61,9 @@ public class HomeFragment extends Fragment {
     }
 
     private List<String> themeList;
+
+
+
     public interface ChangeFragment{
         //改变通信方式！
         void change();
@@ -79,22 +84,18 @@ public class HomeFragment extends Fragment {
         return view;
     }
     private void inView(){
-
         flipper=view.findViewById(R.id.flipper);
         entrance=view.findViewById(R.id.entrance);
+        entrance.setOnItemClickListener(this);
         serviceTypeList=new ArrayList<>();
         theme=view.findViewById(R.id.theme);
         themeList=new ArrayList<>();
     }
-    @SuppressLint("ClickableViewAccessibility")
-    private void setClick(){
 
-    }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         inView();
-        setClick();
         startImageRequest();
         startEntranceRequest();
         startThemeRequest();
@@ -244,5 +245,12 @@ public class HomeFragment extends Fragment {
             }
         });
         return imageView;
+    }
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        BeanServiceType serviceType = serviceTypeList.get(i);
+        if (serviceType.getServiceName().equals("地铁查询")){
+            startActivity(new Intent(view.getContext(), SubwayActivity.class));
+        }
     }
 }
