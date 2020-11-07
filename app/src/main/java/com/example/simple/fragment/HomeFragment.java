@@ -46,22 +46,21 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class HomeFragment extends Fragment implements AdapterView.OnItemClickListener, TextView.OnEditorActionListener {
     private View view;
-
     private ViewFlipper flipper;
     private GridView entrance,theme;
     private List<BeanServiceType> serviceTypeList;
     private ServicesTypeAdapter typeAdapter;
-    private ChangeFragment changeFragment;
+    private ChangeFragment changeFragment;//instanceof
     private ChangeNewsFragment changeNewsFragment;
+    private EditText search;
 
     public void setChangeNewsFragment(ChangeNewsFragment changeNewsFragment) {
         this.changeNewsFragment = changeNewsFragment;
     }
 
     private List<String> themeList;
-
 
 
     public interface ChangeFragment{
@@ -90,6 +89,8 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemClickLis
         serviceTypeList=new ArrayList<>();
         theme=view.findViewById(R.id.theme);
         themeList=new ArrayList<>();
+        search=view.findViewById(R.id.search);
+        search.setOnEditorActionListener(this);
     }
 
     @Override
@@ -253,4 +254,17 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemClickLis
             startActivity(new Intent(view.getContext(), SubwayActivity.class));
         }
     }
+
+    @Override
+    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+        if (i== EditorInfo.IME_ACTION_SEARCH){
+            String str=search.getText().toString().trim();
+            if (changeNewsFragment!=null){
+                changeNewsFragment.transferData(1,str);
+            }
+            return true;
+        }
+        return false;
+    }
+
 }

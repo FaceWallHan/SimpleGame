@@ -104,20 +104,25 @@ public class SettingDialog extends DialogFragment {
         port_et = view.findViewById(R.id.port_et);
         save_bt = view.findViewById(R.id.save_bt);
         cancel_bt = view.findViewById(R.id.cancel_bt);
-        String ip= (String) MyTools.getInstance().getData(DataKeys.IP_ADDRESS,"192.168.43.110");
+        String ip= (String) MyTools.getInstance().getData(DataKeys.IP_ADDRESS,"118.190.26.201");
         String port= (String) MyTools.getInstance().getData(DataKeys.PORT,"8080");
         address_et.setText(ip);
         port_et.setText(port);
     }
 
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        Dialog dialog = getDialog();
+//        if (dialog != null) {
+//            DisplayMetrics dm = new DisplayMetrics();
+//            getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+//            dialog.getWindow().setLayout((int) (dm.widthPixels * 0.7), (int) (dm.widthPixels * 0.7));
+//        }
+//    }
     @Override
-    public void onStart() {
-        super.onStart();
-        Dialog dialog = getDialog();
-        if (dialog != null) {
-            DisplayMetrics dm = new DisplayMetrics();
-            getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
-            dialog.getWindow().setLayout((int) (dm.widthPixels * 0.7), (int) (dm.widthPixels * 0.5));
-        }
+    public void onResume() {
+        super.onResume();
+        getDialog().getWindow().setLayout(700, 600);
     }
 }

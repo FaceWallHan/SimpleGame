@@ -7,6 +7,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.simple.AppClient;
+import com.example.simple.utils.DataKeys;
+import com.example.simple.utils.MyTools;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,7 +16,10 @@ import org.json.JSONObject;
 public class VolleyTo extends Thread{
     //https://api.uomg.com/api/
     //http://192.168.43.110:8080/mobileA/
-    private String Url="http://118.190.26.201:8080/mobileA/";
+
+    private String Url="http://"+ MyTools.getInstance().getData(DataKeys.IP_ADDRESS,"118.190.26.201")
+                                    +":"+MyTools.getInstance().getData(DataKeys.PORT,"8080")
+                                    +"/mobileA/";
     private JSONObject jsonObject=new JSONObject();
     private int Time;
     private boolean isLoop;

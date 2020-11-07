@@ -19,6 +19,7 @@ import com.example.simple.adapter.ViewPagerAdapter;
 import com.example.simple.fragment.GuideFragment;
 import com.example.simple.net.NetCall;
 import com.example.simple.net.NetRequest;
+import com.example.simple.net.VolleyTo;
 import com.example.simple.utils.DataKeys;
 import com.example.simple.utils.MyTools;
 
@@ -59,6 +60,7 @@ public class GuideActivity extends AppCompatActivity {
             setContentView(R.layout.guide_layout);
             inView();
             startRequest();
+
         }else {
             startActivity(new Intent(this,MainActivity.class));
             finish();
@@ -107,10 +109,9 @@ public class GuideActivity extends AppCompatActivity {
         });
     }
     private void startRequest(){
-        NetRequest request=new NetRequest();
-        request.setUrl("getActionImages")
-                .showDialog(GuideActivity.this)
-                .setNetCall(new NetCall() {
+        VolleyTo volleyTo=new VolleyTo();
+        volleyTo.setUrl("getActionImages")
+                .setVolleyLo(new NetCall() {
                     @Override
                     public void onSuccess(JSONObject jsonObject) {
                         try {
@@ -127,9 +128,9 @@ public class GuideActivity extends AppCompatActivity {
                                 }
                                 setPager();
                                 addView();
+                                Log.d("11111111111111", "onCreate: "+point_layout.getChildCount());
                                 //handler.sendEmptyMessageDelayed(0, time);
                             }
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

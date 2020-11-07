@@ -32,6 +32,7 @@ import com.bumptech.glide.Glide;
 import com.example.simple.R;
 import com.example.simple.dialog.ImageDialog;
 import com.example.simple.dialog.ModifyInfoDialog;
+import com.example.simple.utils.MyTools;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -49,7 +50,7 @@ public class PersonInfoActivity extends BaseActivity implements View.OnClickList
     private static final int CHOOSE_PHOTO=101;
     private static final int TAKE_PHOTO=100;
     private Uri imageUri;
-    private String[] permissions={Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA};;
+    //private String[] permissions={Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA};;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -156,8 +157,8 @@ public class PersonInfoActivity extends BaseActivity implements View.OnClickList
     public void OnCenterItemClick(ImageDialog dialog, View view) {
         switch (view.getId()){
             case R.id.photo_choose:
-                if (verifyPermissions(PersonInfoActivity.this,permissions[2])==0){
-                    ActivityCompat.requestPermissions(PersonInfoActivity.this,permissions,1);
+                if (!MyTools.getInstance().verifyPermissions(PersonInfoActivity.this,MyTools.getInstance().permissions[2])){
+                    ActivityCompat.requestPermissions(PersonInfoActivity.this,MyTools.getInstance().permissions,1);
                 }else {
                     toPicture();
                 }
@@ -243,38 +244,6 @@ public class PersonInfoActivity extends BaseActivity implements View.OnClickList
         Uri uri=data.getData();
         String imagePath=getImagePath(uri,null);
         displayImage(imagePath);
-    }
-//    @Override
-//    public void onSubmit(String type, String content) {
-//        switch (type){
-//            case PHONE:
-//                phone.setText(content);
-//                break;
-//            case IDENTITY:
-//                identity.setText(content);
-//                break;
-//            case NICK_NAME:
-//                String convert=content.substring(0,2)+"************"+content.substring(content.length()-4);
-//                identity.setText(convert);
-//                break;
-//        }
-//    }
-    /**
-     * 检查是否有对应权限
-     *
-     * @param activity 上下文
-     * @param permission 要检查的权限
-     * @return  结果标识
-     */
-    public int verifyPermissions(Activity activity, String permission) {
-        int Permission = ActivityCompat.checkSelfPermission(activity,permission);
-        if (Permission == PackageManager.PERMISSION_GRANTED) {
-//            L.e("已经同意权限");
-            return 1;
-        }else{
-//            L.e("没有同意权限");
-            return 0;
-        }
     }
     private void handleImageOnKitKat(Intent data){
         String imagePath=null;

@@ -1,14 +1,19 @@
 package com.example.simple.utils;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
 
 import com.example.simple.AppClient;
+import com.example.simple.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,6 +25,13 @@ public class MyTools {
     private static  SharedPreferences.Editor editor;
     private static Toast toast;
     private static AlertDialog.Builder builder;
+    public String[] permissions={
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.READ_PHONE_STATE};
     public synchronized static MyTools getInstance(){
         if (myTools==null){
             myTools=new MyTools();
@@ -95,4 +107,26 @@ public class MyTools {
         Date date=new Date(System.currentTimeMillis());
         return format.format(date);
     }
+    /**
+     * 检查是否有对应权限
+     *
+     * @param activity 上下文
+     * @param permission 要检查的权限
+     * @return  结果标识
+     */
+    public boolean verifyPermissions(Activity activity, String permission) {
+        int index = ActivityCompat.checkSelfPermission(activity,permission);
+        //是否已经同意权限
+        return index== PackageManager.PERMISSION_GRANTED;
+    }
+    public int[]imageResource=new int[]{R.drawable.main_icon,
+            R.drawable.service_icon,
+            R.drawable.party_icon,
+            R.drawable.news_icon,
+            R.drawable.user_icon};
+    public int[]stringResource=new int[]{R.string.main,
+            R.string.all_service,
+            R.string.party,
+            R.string.news,
+            R.string.personal};
 }

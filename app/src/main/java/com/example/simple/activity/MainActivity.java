@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ import com.example.simple.fragment.ApplyServiceFragment;
 import com.example.simple.fragment.HomeFragment;
 import com.example.simple.fragment.NewsFragment;
 import com.example.simple.fragment.PersonalFragment;
+import com.example.simple.utils.MyTools;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.navigation.NavigationView;
@@ -42,12 +44,13 @@ import java.util.List;
  * */
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener,
-                                                                HomeFragment.ChangeFragment,
-                                                                TextView.OnEditorActionListener {
+                                                                HomeFragment.ChangeFragment{
     private BottomNavigationBar navigationView;
     private HomeFragment homeFragment;
     private List<Fragment> fragmentList;
-    private EditText search;
+    private TextView title;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,8 +64,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
             public void transferData(int num, String type) {
                 //分别对应搜索和点击图片两种方式
                 if (num>0){
-                    replaceFragment(fragmentList.get(2));
-                    navigationView.selectTab(2);
+                    changeItem(2,false);
                 }
             }
         });
@@ -73,17 +75,16 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         navigationView.setMode(BottomNavigationBar.MODE_SHIFTING);
         navigationView.setTabSelectedListener(this);
         navigationView.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_RIPPLE);
-        navigationView.addItem(addNavigationItem(R.drawable.main_icon,R.string.main))
-                .addItem(addNavigationItem(R.drawable.service_icon,R.string.all_service))
-                //.addItem(addNavigationItem(R.drawable.party_icon,R.string.party))
-                .addItem(addNavigationItem(R.drawable.news_icon,R.string.news))
-                .addItem(addNavigationItem(R.drawable.user_icon,R.string.personal))
-                .setFirstSelectedPosition(0)
-                .initialise();
+
+        int length=MyTools.getInstance().imageResource.length;
+        for (int i = 0; i < length; i++) {
+            navigationView.addItem(addNavigationItem(MyTools.getInstance().imageResource[i]
+                                ,MyTools.getInstance().stringResource[i]));
+        }
+        navigationView.setFirstSelectedPosition(0).initialise();
         navigationView.setBackgroundColor(Color.BLUE);
         fragmentList=new ArrayList<>();
-        search=findViewById(R.id.search);
-        search.setOnEditorActionListener(this);
+        title=findViewById(R.id.title);
     }
     private void addItem(){
         fragmentList.add(new HomeFragment());
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 
     @Override
     public void onTabSelected(int position) {
-        replaceFragment(fragmentList.get(position));
+        changeItem(position,true);
     }
 
     @Override
@@ -111,6 +112,19 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 
     @Override
     public void onTabReselected(int position) {
+
+    }
+    private void changeItem(int position,boolean isListener){
+        replaceFragment(fragmentList.get(position));
+        if (!isListener){
+            navigationView.selectTab(position);
+        }
+        if (position==0){
+            title.setVisibility(View.GONE);
+        }else {
+            title.setVisibility(View.VISIBLE);
+            title.setText(MyTools.getInstance().stringResource[position]);
+        }
 
     }
     private BottomNavigationItem addNavigationItem(int iconResource,int strValueId){
@@ -124,22 +138,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     @Override
     public void change() {
         //通信方式
-        replaceFragment(new ApplyServiceFragment());
-        navigationView.selectTab(1);
-    }
-
-    @Override
-    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-        if (i== EditorInfo.IME_ACTION_SEARCH){
-            String str=search.getText().toString().trim();
-            //Intent对象重复导致**问题！！！
-//            Intent intent=new Intent(MainActivity.this, SearchNewsActivity.class);
-//            intent.putExtra("search",str);
-//            startActivity(intent);
-            replaceFragment(fragmentList.get(2));
-            navigationView.selectTab(2);
-            return true;
-        }
-        return true;
+        changeItem(1,false);
     }
 }
