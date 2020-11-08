@@ -99,7 +99,9 @@ public class MyTools {
         builder.setMessage(msg);
         builder.setCancelable(false);
         builder.setPositiveButton("确定", null);
-        builder.setNegativeButton("取消", listener);
+        if (listener!=null){
+            builder.setNegativeButton("取消", listener);
+        }
         builder.show();
     }
     public String getNowTime(String type){

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">智慧城市</string>
-    <string name="search" translatable="false">搜索新闻</string>
+    <string name="search_news" translatable="false">搜索新闻</string>
+    <string name="search_application" translatable="false">搜索服务</string>
     <string name="empty_data">暂无数据</string>
     <string name="main">首页</string>
     <string name="all_service">全部服务</string>

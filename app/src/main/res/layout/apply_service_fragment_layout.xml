@@ -3,8 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <EditText
+        android:imeOptions="actionSearch"
+        android:hint="@string/search_application"
+        android:lines="1"
+        android:inputType="text"
+        android:id="@+id/search_et"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
     <ExpandableListView
         android:id="@+id/all_service"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 </LinearLayout>
