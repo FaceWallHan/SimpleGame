@@ -20,4 +20,10 @@ public class BaseActivity  extends AppCompatActivity {
         TextView title_tv=findViewById(R.id.title_tv);
         title_tv.setText(title);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

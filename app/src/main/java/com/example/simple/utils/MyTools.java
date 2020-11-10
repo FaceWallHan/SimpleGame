@@ -123,12 +123,12 @@ public class MyTools {
     }
     public int[]imageResource=new int[]{R.drawable.main_icon,
             R.drawable.service_icon,
-            R.drawable.party_icon,
             R.drawable.news_icon,
+            R.drawable.party_icon,
             R.drawable.user_icon};
     public int[]stringResource=new int[]{R.string.main,
             R.string.all_service,
-            R.string.party,
             R.string.news,
+            R.string.party,
             R.string.personal};
 }

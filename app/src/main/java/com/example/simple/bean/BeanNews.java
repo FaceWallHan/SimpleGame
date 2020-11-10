@@ -1,6 +1,8 @@
 package com.example.simple.bean;
 
-public class BeanNews {
+import java.io.Serializable;
+
+public class BeanNews implements Serializable {
     private int newsId;
     private String newsType,picture,content,title,url;
     private String publicTime;

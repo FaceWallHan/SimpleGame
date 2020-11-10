@@ -40,7 +40,7 @@
             android:process=":remote"/>
         <activity android:name=".activity.ModifyPassWordActivity"/>
         <activity android:name=".activity.PersonInfoActivity"/>
-        <activity android:name=".activity.SearchWebActivity" />
+        <activity android:name=".activity.DetailsNewsActivity" />
         <activity android:name=".activity.OrderActivity"/>
         <activity android:name=".activity.OpinionActivity"/>
         <activity android:name=".activity.OrderInfoActivity"/>

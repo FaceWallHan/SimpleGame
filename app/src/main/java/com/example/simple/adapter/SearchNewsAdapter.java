@@ -57,7 +57,9 @@ public class SearchNewsAdapter extends ArrayAdapter<BeanNews> {
         search_title.setText(title);
         search_content.setText(beanNews.getContent().substring(0,40)+"...");
         Glide.with(parent.getContext()).load(beanNews.getPicture()).into(search_picture);
-        news_comment.setText(beanNews.getPraiseCount()+"评论");
+        if (beanNews.getPraiseCount()!=null){
+            news_comment.setText(beanNews.getPraiseCount()+"评论");
+        }
         news_time.setText(beanNews.getPublicTime());
         return convertView;
     }

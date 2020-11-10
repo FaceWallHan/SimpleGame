@@ -32,6 +32,7 @@ public class AllThemeAdapter extends ArrayAdapter<String> {
         TextView title_theme=convertView.findViewById(R.id.title_theme);
         TextView content_theme=convertView.findViewById(R.id.content_theme);
         String item=getItem(position);
+        assert item != null;
         title_theme.setText(item.substring(0,1));
         content_theme.setText(item);
         return convertView;

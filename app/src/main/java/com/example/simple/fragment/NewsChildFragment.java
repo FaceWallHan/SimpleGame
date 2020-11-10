@@ -1,9 +1,11 @@
 package com.example.simple.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.simple.AppClient;
 import com.example.simple.R;
+import com.example.simple.activity.DetailsNewsActivity;
 import com.example.simple.adapter.SearchNewsAdapter;
 import com.example.simple.bean.BeanNews;
 
@@ -55,5 +58,14 @@ public class NewsChildFragment extends Fragment {
         ListView search_list = view.findViewById(R.id.search_list);
         search_list.setAdapter(new SearchNewsAdapter(view.getContext(),newsList));
         search_list.setEmptyView(view.findViewById(R.id.search_tv));
+        search_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                BeanNews bean = newsList.get(i);
+                Intent intent=new Intent(view.getContext(), DetailsNewsActivity.class);
+                intent.putExtra("BeanNews",bean);
+                startActivity(intent);
+            }
+        });
     }
 }
