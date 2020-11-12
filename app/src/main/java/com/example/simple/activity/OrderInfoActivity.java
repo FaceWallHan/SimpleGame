@@ -32,7 +32,7 @@ public class OrderInfoActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order_info_layout);
-        setTitle("订单详情");
+        setTitleText("订单详情");
         inView();
         startInfoRequest(orderId);
     }

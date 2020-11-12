@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.simple.AppClient;
 import com.example.simple.R;
+import com.example.simple.activity.MovableActivity;
 import com.example.simple.activity.OrderActivity;
 import com.example.simple.activity.SubwayActivity;
 import com.example.simple.adapter.AllServiceAdapter;
@@ -53,12 +54,11 @@ public class ApplyServiceFragment extends Fragment implements TextView.OnEditorA
     private void addData(){
         AllServiceAdapter serviceAdapter=new AllServiceAdapter(getContext(),map,typeList);
         all_service.setAdapter(serviceAdapter);
+
         serviceAdapter.setOnChildGridClickListener(new AllServiceAdapter.OnChildGridClickListener() {
             @Override
             public void OnOnChildGridClick(String type) {
-                if (type.equals("地铁查询")){
-                    startActivity(new Intent(view.getContext(), SubwayActivity.class));
-                }
+                startActivity(MyTools.getInstance().judgmentIntent(type,view.getContext()));
             }
         });
 
@@ -92,7 +92,7 @@ public class ApplyServiceFragment extends Fragment implements TextView.OnEditorA
                 }
             }
             if (is){
-                startActivity(new Intent(view.getContext(), OrderActivity.class));
+                startActivity(MyTools.getInstance().judgmentIntent(str,view.getContext()));
             }else {
                 MyTools.getInstance().showDialog("请输入正确的服务！",view.getContext(),null);
                 search_et.setText("");

@@ -23,7 +23,7 @@ public class ModifyPassWordActivity extends BaseActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.modify_password_layout);
         inView();
-        setTitle(getResources().getString(R.string.modify_password));
+        setTitleText(getResources().getString(R.string.modify_password));
     }
     private void inView(){
         TextView modify_info = findViewById(R.id.modify_info);

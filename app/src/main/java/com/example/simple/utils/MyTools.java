@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.widget.Toast;
@@ -14,6 +15,8 @@ import androidx.core.app.ActivityCompat;
 
 import com.example.simple.AppClient;
 import com.example.simple.R;
+import com.example.simple.activity.MovableActivity;
+import com.example.simple.activity.SubwayActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -124,11 +127,25 @@ public class MyTools {
     public int[]imageResource=new int[]{R.drawable.main_icon,
             R.drawable.service_icon,
             R.drawable.news_icon,
-            R.drawable.party_icon,
+            //R.drawable.party_icon,
             R.drawable.user_icon};
     public int[]stringResource=new int[]{R.string.main,
             R.string.all_service,
             R.string.news,
-            R.string.party,
+           // R.string.party,
             R.string.personal};
+    public Intent judgmentIntent(String type,Context context){
+        Intent intent=new Intent();
+        switch (type){
+            case "地铁查询":
+                intent=new Intent(context, SubwayActivity.class);
+                break;
+            case "活动":
+                intent=new Intent(context, MovableActivity.class);
+                break;
+            default:
+                break;
+        }
+        return intent;
+    }
 }

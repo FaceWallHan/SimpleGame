@@ -154,6 +154,12 @@ public class DetailsNewsActivity extends BaseActivity implements View.OnClickLis
     }
     private void inView(){
         currentBean= (BeanNews) getIntent().getSerializableExtra("BeanNews");
+        assert currentBean != null;
+        String title=currentBean.getTitle();
+        if (title.length()>5){
+            title=title.substring(0,4);
+        }
+        setTitleText(title);
         news_content=findViewById(R.id.news_content);
         news_picture=findViewById(R.id.news_picture);
         comment = findViewById(R.id.comment);

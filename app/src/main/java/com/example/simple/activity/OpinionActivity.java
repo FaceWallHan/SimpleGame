@@ -23,7 +23,7 @@ public class OpinionActivity extends BaseActivity implements View.OnClickListene
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.opinion_layout);
-        setTitle(getResources().getString(R.string.personal_back));
+        setTitleText(getResources().getString(R.string.personal_back));
         inView();
     }
     private void inView(){

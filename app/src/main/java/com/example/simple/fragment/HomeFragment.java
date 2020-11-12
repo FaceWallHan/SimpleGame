@@ -25,6 +25,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.example.simple.AppClient;
 import com.example.simple.R;
+import com.example.simple.activity.MovableActivity;
 import com.example.simple.activity.SubwayActivity;
 import com.example.simple.adapter.AllThemeAdapter;
 import com.example.simple.adapter.ServicesTypeAdapter;
@@ -32,6 +33,7 @@ import com.example.simple.bean.BeanServiceType;
 import com.example.simple.net.NetCall;
 import com.example.simple.net.NetRequest;
 import com.example.simple.net.VolleyTo;
+import com.example.simple.utils.MyTools;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -250,9 +252,7 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemClickLis
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         BeanServiceType serviceType = serviceTypeList.get(i);
-        if (serviceType.getServiceName().equals("地铁查询")){
-            startActivity(new Intent(view.getContext(), SubwayActivity.class));
-        }
+        startActivity(MyTools.getInstance().judgmentIntent(serviceType.getServiceName(),view.getContext()));
     }
 
     @Override

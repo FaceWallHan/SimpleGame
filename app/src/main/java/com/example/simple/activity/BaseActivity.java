@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.simple.R;
 
 public class BaseActivity  extends AppCompatActivity {
-    public void setTitle(String title){
+    public void setTitleText(String title){
         ImageView title_back = findViewById(R.id.title_back);
         title_back.setOnClickListener(new View.OnClickListener() {
             @Override

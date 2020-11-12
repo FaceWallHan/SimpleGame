@@ -59,7 +59,7 @@ public class PersonInfoActivity extends BaseActivity implements View.OnClickList
         Intent intent=getIntent();
         userInfo=intent.getStringArrayExtra("userInfo");
         inView();
-        setTitle(getResources().getString(R.string.personal_info));
+        setTitleText(getResources().getString(R.string.personal_info));
         assert userInfo != null;
         setData(userInfo);
 
