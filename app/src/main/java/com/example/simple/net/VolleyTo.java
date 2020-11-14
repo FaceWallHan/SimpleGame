@@ -72,11 +72,17 @@ public class VolleyTo extends Thread{
                 @Override
                 public void onResponse(JSONObject jsonObject) {
                     volleyLo.onSuccess(jsonObject);
+                    if (mDialog!=null&&mDialog.isShowing()){
+                        mDialog.dismiss();
+                    }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError volleyError) {
                     volleyLo.onFailure(volleyError);
+                    if (mDialog!=null&&mDialog.isShowing()){
+                        mDialog.dismiss();
+                    }
                 }
             });
             AppClient.add(jsonObjectRequest);

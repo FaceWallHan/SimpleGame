@@ -45,6 +45,9 @@
         <activity android:name=".activity.OpinionActivity"/>
         <activity android:name=".activity.OrderInfoActivity"/>
         <activity android:name=".activity.MovableActivity"/>
+        <activity android:name=".activity.ViolationActivity"/>
+        <activity android:name=".activity.ViolationInfoActivity"/>
+        <activity android:name=".activity.ViolationDetailsActivity"/>
         <activity android:name=".activity.MovableInfoActivity"/>
         <activity android:name=".activity.MainActivity"
             android:windowSoftInputMode="adjustPan"/>

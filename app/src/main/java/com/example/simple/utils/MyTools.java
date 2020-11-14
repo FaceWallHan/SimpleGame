@@ -17,6 +17,7 @@ import com.example.simple.AppClient;
 import com.example.simple.R;
 import com.example.simple.activity.MovableActivity;
 import com.example.simple.activity.SubwayActivity;
+import com.example.simple.activity.ViolationActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -142,6 +143,9 @@ public class MyTools {
                 break;
             case "活动":
                 intent=new Intent(context, MovableActivity.class);
+                break;
+            case "违章查询":
+                intent=new Intent(context, ViolationActivity.class);
                 break;
             default:
                 break;

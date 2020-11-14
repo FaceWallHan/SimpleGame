@@ -43,14 +43,15 @@ public class MovableInfoActivity extends BaseActivity implements View.OnClickLis
     private List<BeanComment>commentList;
     private List<BeanAction>actionList;
     private MovableAdapter adapter;
+    private int id;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movable_info_layout);
-        int id=getIntent().getIntExtra("BeanAction",1);
+        id=getIntent().getIntExtra("BeanAction",1);
         setTitleText("活动详情");
-        startActionByIdRequest(id);
         inView();
+        startActionByIdRequest(id);
         startRecommendInfoRequest(id);
     }
     private void inView(){
@@ -58,6 +59,9 @@ public class MovableInfoActivity extends BaseActivity implements View.OnClickLis
         AllItemListView action_recommend = findViewById(R.id.action_recommend);
         action_comment=findViewById(R.id.action_comment);
         Button submit_action = findViewById(R.id.submit_action);
+        submit_action.setOnClickListener(this);
+        Button sign_up = findViewById(R.id.sign_up);
+        sign_up.setOnClickListener(this);
         action_et=findViewById(R.id.action_et);
         action_content=findViewById(R.id.action_content);
         action_count=findViewById(R.id.action_count);
@@ -65,7 +69,6 @@ public class MovableInfoActivity extends BaseActivity implements View.OnClickLis
         adapter=new MovableAdapter(MovableInfoActivity.this,actionList);
         action_recommend.setAdapter(adapter);
         commentList=new ArrayList<>();
-        submit_action.setOnClickListener(this);
         action_recommend.setOnItemClickListener(this);
     }
     private void parseData(){
@@ -207,14 +210,44 @@ public class MovableInfoActivity extends BaseActivity implements View.OnClickLis
                     }
                 }).start();
     }
+    private void startSignUpRequest(){
+        VolleyTo volleyTo=new VolleyTo();
+        volleyTo.setUrl("setActionSignUpCount")
+                .setJsonObject("id",beanAction.getId())
+                .setDialog(MovableInfoActivity.this)
+                .setVolleyLo(new NetCall() {
+                    @Override
+                    public void onSuccess(JSONObject jsonObject) {
+                        try {
+                            if (jsonObject.getString("RESULT").equals("S")){
+                                startActionByIdRequest(id);
+                                startRecommendInfoRequest(id);
+                                Log.d("111111111111111111", "onSuccess: ");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+
+                    }
+                }).start();
+    }
     @Override
     public void onClick(View view) {
-        if (view.getId()==R.id.submit_action){
-            String content=action_et.getText().toString().trim();
-            if (!content.equals("")){
-                //RxJava防止多次按？
-                startSubmitRequest(content);
-            }
+        switch (view.getId()){
+            case R.id.submit_action:
+                String content=action_et.getText().toString().trim();
+                if (!content.equals("")){
+                    //RxJava防止多次按？
+                    startSubmitRequest(content);
+                }
+                break;
+            case R.id.sign_up:
+                startSignUpRequest();
+                break;
         }
     }
 

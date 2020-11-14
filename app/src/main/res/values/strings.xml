@@ -37,6 +37,20 @@
     <string name="count">数量</string>
     <string name="submit">提交</string>
     <string name="recommend_news">新闻推荐</string>
+    <string name="sign_up">报名活动</string>
+    <string name="number_type">号码种类</string>
+    <string name="license_plate_number">车牌号码</string>
+    <string name="engine">发动机号</string>
+    <string name="inquire">查询</string>
+    <string name="show_more">查看更多</string>
+    <string name="violation_info">违章详情</string>
+    <string name="violation_time">违法时间</string>
+    <string name="violation_place">违法地点</string>
+    <string name="violation_description">违法行为</string>
+    <string name="punishment_info">处罚详情</string>
+    <string name="violation_notification">通知书号</string>
+    <string name="deductPoints">违章记分</string>
+    <string name="violation_cost">罚款金额</string>
     <integer name="slide_time">2000</integer>
     <string-array name="sex_array">
         <item>男</item>
