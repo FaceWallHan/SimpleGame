@@ -21,7 +21,7 @@
     <string name="nickname">昵称</string>
     <string name="sex">性别</string>
     <string name="phone">联系电话</string>
-    <string name="identity">身份证号</string>
+    <string name="identity">身份证号*</string>
     <string name="photo_album">相册选取</string>
     <string name="take_pictures">拍照</string>
     <string name="cancel">取消</string>
@@ -51,6 +51,11 @@
     <string name="violation_notification">通知书号</string>
     <string name="deductPoints">违章记分</string>
     <string name="violation_cost">罚款金额</string>
+    <string name="reservation">预约挂号</string>
+    <string name="create_treat">创建就诊卡片</string>
+    <string name="name">姓名</string>
+    <string name="birthday">出生日期</string>
+    <string name="address">地址</string>
     <integer name="slide_time">2000</integer>
     <string-array name="sex_array">
         <item>男</item>

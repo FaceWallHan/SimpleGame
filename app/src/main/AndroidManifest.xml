@@ -38,6 +38,12 @@
         <service android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote"/>
+        <activity android:name=".activity.RegisteredActivity"/>
+        <activity android:name=".activity.DepartmentActivity"/>
+        <activity android:name=".activity.CreateTreatActivity"/>
+        <activity android:name=".activity.TreatCardActivity"/>
+        <activity android:name=".activity.HospitalInfoActivity"/>
+        <activity android:name=".activity.ShowHospitalActivity"/>
         <activity android:name=".activity.ModifyPassWordActivity"/>
         <activity android:name=".activity.PersonInfoActivity"/>
         <activity android:name=".activity.DetailsNewsActivity" />

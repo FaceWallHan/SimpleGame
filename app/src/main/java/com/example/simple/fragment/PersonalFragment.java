@@ -80,6 +80,7 @@ public class PersonalFragment  extends Fragment implements View.OnClickListener 
                                 JSONArray array=new JSONArray(jsonObject.getString("ROWS_DETAIL"));
                                 JSONObject object=array.getJSONObject(0);
                                 String id=object.getString("id");
+                                MyTools.getInstance().setData(DataKeys.id_Number,id);
                                 String name=object.getString("name");
                                 String avatar=object.getString("avatar");
                                 String phone=object.getString("phone");

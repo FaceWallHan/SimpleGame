@@ -16,6 +16,7 @@ import androidx.core.app.ActivityCompat;
 import com.example.simple.AppClient;
 import com.example.simple.R;
 import com.example.simple.activity.MovableActivity;
+import com.example.simple.activity.ShowHospitalActivity;
 import com.example.simple.activity.SubwayActivity;
 import com.example.simple.activity.ViolationActivity;
 
@@ -146,6 +147,9 @@ public class MyTools {
                 break;
             case "违章查询":
                 intent=new Intent(context, ViolationActivity.class);
+                break;
+            case "门诊预约":
+                intent=new Intent(context, ShowHospitalActivity.class);
                 break;
             default:
                 break;
