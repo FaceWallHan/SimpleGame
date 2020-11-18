@@ -15,6 +15,7 @@ import com.example.simple.adapter.DepartmentAdapter;
 import com.example.simple.bean.BeanDepartment;
 import com.example.simple.net.NetCall;
 import com.example.simple.net.VolleyTo;
+import com.example.simple.utils.MyTools;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -33,6 +34,7 @@ public class DepartmentActivity extends BaseActivity implements AdapterView.OnIt
         setContentView(R.layout.department_layout);
         setTitleText("门诊科室分诊");
         inView();
+        MyTools.getInstance().addActivity(this);
         startDepartmentRequest();
     }
     private void inView(){
@@ -54,7 +56,6 @@ public class DepartmentActivity extends BaseActivity implements AdapterView.OnIt
                                 TypeToken<List<BeanDepartment>>token=new  TypeToken<List<BeanDepartment>>(){};
                                 String json=jsonObject.getString("ROWS_DETAIL");
                                 List<BeanDepartment> list=new Gson().fromJson(json,token.getType());
-                                AppClient.getInstance().getDepartmentList().addAll(list);
                                 departmentList.addAll(list);
                                 adapter.notifyDataSetChanged();
                             }

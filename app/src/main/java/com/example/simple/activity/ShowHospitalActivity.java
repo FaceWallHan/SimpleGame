@@ -15,6 +15,7 @@ import com.example.simple.adapter.HospitalAdapter;
 import com.example.simple.bean.BeanHospital;
 import com.example.simple.net.NetCall;
 import com.example.simple.net.VolleyTo;
+import com.example.simple.utils.MyTools;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +35,7 @@ public class ShowHospitalActivity  extends BaseActivity implements AdapterView.O
         setTitleText("门诊预约");
         startHospitalRequest();
         inView();
+        MyTools.getInstance().addActivity(this);
     }
     private void inView(){
         ListView hospital_lv=findViewById(R.id.hospital_lv);

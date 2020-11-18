@@ -1,9 +1,13 @@
 package com.example.simple.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +16,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.simple.AppClient;
 import com.example.simple.R;
+import com.example.simple.activity.RegisterInfoActivity;
+import com.example.simple.adapter.OrdinaryAdapter;
 import com.example.simple.bean.BeanAttend;
 import com.example.simple.bean.BeanDepartment;
 import com.example.simple.net.NetCall;
@@ -20,17 +26,18 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrdinaryFragment extends Fragment {
+public class OrdinaryFragment extends Fragment implements AdapterView.OnItemClickListener {
     private View view;
     private BeanDepartment department;
-    private ListView ordinary_lv;
     private List<BeanAttend> attendList;
+    private OrdinaryAdapter adapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,13 +57,18 @@ public class OrdinaryFragment extends Fragment {
         Bundle bundle = getArguments();
         if (bundle != null){
             department = (BeanDepartment) bundle.getSerializable("OrdinaryFragment");
+            assert department != null;
+            BeanAttend.setDepartmentName(department.getDeptName());
             inView();
             startHospitalDepartmentRequest();
         }
     }
     private void inView(){
-        ordinary_lv=view.findViewById(R.id.ordinary_lv);
+        ListView ordinary_lv = view.findViewById(R.id.ordinary_lv);
         attendList=new ArrayList<>();
+        adapter=new OrdinaryAdapter(view.getContext(),attendList);
+        ordinary_lv.setAdapter(adapter);
+        ordinary_lv.setOnItemClickListener(this);
         //先根据departmentId找出每个departmentName,然后再list显示出来，点击item的预约进入预约挂号界面，显示预约成功，点击成功后回到“首页”？？(SnackBar)
     }
     private void startHospitalDepartmentRequest(){
@@ -69,9 +81,20 @@ public class OrdinaryFragment extends Fragment {
                     public void onSuccess(JSONObject jsonObject) {
                         try {
                             if (jsonObject.getString("RESULT").equals("S")){
-                                TypeToken<List<BeanAttend>>token=new TypeToken<List<BeanAttend>>(){};
-                                String json=jsonObject.getString("ROWS_DETAIL");
-                                attendList.addAll(new Gson().fromJson(json,token.getType()));
+                                JSONArray array=new JSONArray(jsonObject.getString("ROWS_DETAIL"));
+                                for (int i = 0; i < array.length(); i++) {
+                                    JSONObject object=array.getJSONObject(i);
+                                    BeanAttend attend=new BeanAttend();
+                                    attend.setDepartmentId(object.getString("departmentId"));
+                                    attend.setType(object.getString("type"));
+                                    attend.setDoctorId(object.getString("doctorId"));
+                                    attend.setHospitalId(object.getString("hospitalId"));
+                                    attend.setNum(object.getString("num"));
+                                    attend.setTime(object.getString("time"));
+                                    attend.setTime(object.getString("time"));
+                                    attendList.add(attend);
+                                }
+                                adapter.notifyDataSetChanged();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -83,5 +106,13 @@ public class OrdinaryFragment extends Fragment {
 
                     }
                 }).start();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        BeanAttend attend = attendList.get(i);
+        Intent intent=new Intent(view.getContext(), RegisterInfoActivity.class);
+        intent.putExtra("BeanAttend",attend);
+        startActivity(intent);
     }
 }

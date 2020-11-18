@@ -1,20 +1,22 @@
 package com.example.simple.bean;
 
-public class BeanAttend {
+import java.io.Serializable;
+
+public class BeanAttend implements Serializable {
     private String num;
     private String hospitalId;
     private String departmentId;
     private String time;
     private String type;
     private String doctorId;
-    private String departmentName;
+    private static String departmentName;
 
     public String getDepartmentName() {
         return departmentName;
     }
 
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
+    public static void setDepartmentName(String departmentName) {
+        BeanAttend.departmentName = departmentName;
     }
 
     public String getNum() {

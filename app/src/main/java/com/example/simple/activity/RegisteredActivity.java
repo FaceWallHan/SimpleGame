@@ -1,6 +1,7 @@
 package com.example.simple.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import com.example.simple.R;
 import com.example.simple.bean.BeanDepartment;
 import com.example.simple.fragment.ExpertFragment;
 import com.example.simple.fragment.OrdinaryFragment;
+import com.example.simple.utils.MyTools;
 
 public class RegisteredActivity extends BaseActivity implements View.OnClickListener {
     private TextView expert,ordinary;
@@ -23,6 +25,7 @@ public class RegisteredActivity extends BaseActivity implements View.OnClickList
         setContentView(R.layout.registered_layout);
         setTitleText("专家挂号");
         replace(new ExpertFragment());
+        MyTools.getInstance().addActivity(this);
         inView();
     }
     private void inView(){

@@ -17,6 +17,7 @@ import com.example.simple.R;
 import com.example.simple.bean.BeanHospital;
 import com.example.simple.net.NetCall;
 import com.example.simple.net.VolleyTo;
+import com.example.simple.utils.MyTools;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +32,7 @@ public class HospitalInfoActivity extends BaseActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hospital_info_layout);
         inView();
+        MyTools.getInstance().addActivity(this);
         startImageRequest();
     }
     private void inView(){

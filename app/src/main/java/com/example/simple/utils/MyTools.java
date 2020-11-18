@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -19,9 +20,12 @@ import com.example.simple.activity.MovableActivity;
 import com.example.simple.activity.ShowHospitalActivity;
 import com.example.simple.activity.SubwayActivity;
 import com.example.simple.activity.ViolationActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class MyTools {
@@ -37,9 +41,11 @@ public class MyTools {
             Manifest.permission.ACCESS_COARSE_LOCATION,
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.READ_PHONE_STATE};
+    private static List<Activity>activityList;
     public synchronized static MyTools getInstance(){
         if (myTools==null){
             myTools=new MyTools();
+            activityList=new ArrayList<>();
         }
         return myTools;
     }
@@ -156,4 +162,16 @@ public class MyTools {
         }
         return intent;
     }
+    public void addActivity(Activity activity){
+        activityList.add(activity);
+    }
+    public void clearActivity(){
+        for (int i = 0; i < activityList.size(); i++) {
+            Activity activity = activityList.get(i);
+            if (!activity.isFinishing()){
+                activity.finish();
+            }
+        }
+    }
+
 }

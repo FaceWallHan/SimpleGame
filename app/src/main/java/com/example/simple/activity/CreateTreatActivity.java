@@ -24,6 +24,7 @@ public class CreateTreatActivity extends BaseActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_treat_layout);
         setTitleText(getResources().getString(R.string.create_treat));
+        MyTools.getInstance().addActivity(this);
         inView();
     }
     private void inView(){

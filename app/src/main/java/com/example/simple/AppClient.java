@@ -28,7 +28,6 @@ public class AppClient extends LitePalApplication {
     private List<String>group;
     private List<BeanNews> newsList;
     private List<BeanViolation> violationList;
-    private List<BeanDepartment> departmentList;
 
     public static void add(JsonObjectRequest jsonObjectRequest) {
         requestQueue.add(jsonObjectRequest);
@@ -48,7 +47,6 @@ public class AppClient extends LitePalApplication {
         //包括BD09LL和GCJ02两种坐标，默认是BD09LL坐标。
         SDKInitializer.setCoordType(CoordType.BD09LL);
         violationList=new ArrayList<>();
-        departmentList=new ArrayList<>();
     }
 
     public List<BeanNews> getNewsList() {
@@ -70,9 +68,5 @@ public class AppClient extends LitePalApplication {
     public static String hospitalId="123";
     public static AppClient getInstance(){
         return instance;
-    }
-
-    public List<BeanDepartment> getDepartmentList() {
-        return departmentList;
     }
 }

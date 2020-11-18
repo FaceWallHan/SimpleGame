@@ -37,6 +37,7 @@ public class TreatCardActivity extends BaseActivity implements View.OnClickListe
         setContentView(R.layout.treat_card_layout);
         setTitleText("在线挂号");
         inView();
+        MyTools.getInstance().addActivity(this);
         startTreatRequest();
     }
     private void inView(){
