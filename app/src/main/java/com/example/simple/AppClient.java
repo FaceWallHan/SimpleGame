@@ -66,6 +66,7 @@ public class AppClient extends LitePalApplication {
     }
 
     public static String hospitalId="123";
+    public static String parkingid="1";
     public static AppClient getInstance(){
         return instance;
     }

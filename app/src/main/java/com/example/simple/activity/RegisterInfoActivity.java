@@ -25,14 +25,20 @@ public class RegisterInfoActivity  extends BaseActivity{
         String info="门诊类型：普通号"
                 +"\n预约时间：" +attend.getTime()
                 +"\n预约科室：" +attend.getDepartmentName()
-                +"\n医生号：" +attend.getDoctorId();
+                +"\n医生号：" +attend.getDoctorId()
+                +"\n点击预约";
         registered_info.setText(info);
         MyTools.getInstance().addActivity(this);
-        Button success=findViewById(R.id.success);
-        success.setOnClickListener(new View.OnClickListener() {
+        registered_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyTools.getInstance().clearActivity();
+                Snackbar.make(view,"预约成功",Snackbar.LENGTH_SHORT)
+                        .setAction("我知道了", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MyTools.getInstance().clearActivity();
+                            }
+                        }).show();
             }
         });
     }

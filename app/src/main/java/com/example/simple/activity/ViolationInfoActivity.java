@@ -23,7 +23,7 @@ public class ViolationInfoActivity  extends BaseActivity implements View.OnClick
     private Button more;
     private List<BeanViolation>violationList;
     private ViolationAdapter adapter;
-    private int number=5;
+    public static int number=5;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +55,7 @@ public class ViolationInfoActivity  extends BaseActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         if (view.getId()==R.id.more){
-            if (violationList.size()==5){
+            if (violationList.size()==number){
                 violationList.clear();
                 violationList.addAll(AppClient.getInstance().getViolationList());
                 more.setText("收起");

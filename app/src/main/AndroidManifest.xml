@@ -38,6 +38,9 @@
         <service android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote"/>
+        <activity android:name=".activity.ParkingRecordActivity"/>
+        <activity android:name=".activity.ParkingInfoActivity"/>
+        <activity android:name=".activity.ParkingActivity"/>
         <activity android:name=".activity.RegisterInfoActivity"/>
         <activity android:name=".activity.RegisteredActivity"/>
         <activity android:name=".activity.DepartmentActivity"/>
