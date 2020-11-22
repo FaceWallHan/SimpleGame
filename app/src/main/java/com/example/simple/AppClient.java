@@ -7,6 +7,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
+import com.example.simple.bean.BeanBus;
 import com.example.simple.bean.BeanDepartment;
 import com.example.simple.bean.BeanNews;
 import com.example.simple.bean.BeanServiceType;
@@ -67,6 +68,7 @@ public class AppClient extends LitePalApplication {
 
     public static String hospitalId="123";
     public static String parkingid="1";
+    public static BeanBus beanBus;
     public static AppClient getInstance(){
         return instance;
     }

@@ -38,6 +38,12 @@
         <service android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote"/>
+        <activity android:name=".activity.LifePayActivity"/>
+        <activity android:name=".activity.WisdomBusFourActivity"/>
+        <activity android:name=".activity.WisdomBusThreeActivity"/>
+        <activity android:name=".activity.WisdomBusTwoActivity"/>
+        <activity android:name=".activity.WisdomBusOneActivity"/>
+        <activity android:name=".activity.WisdomBusActivity"/>
         <activity android:name=".activity.ParkingRecordActivity"/>
         <activity android:name=".activity.ParkingInfoActivity"/>
         <activity android:name=".activity.ParkingActivity"/>

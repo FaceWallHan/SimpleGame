@@ -56,17 +56,17 @@ public class CreateTreatActivity extends BaseActivity implements View.OnClickLis
                                 MyTools.getInstance().showToast("创建成功",CreateTreatActivity.this);
                                 finish();
                             }else {
-                                MyTools.getInstance().showDialog("创建失败",CreateTreatActivity.this,null);
+                                MyTools.getInstance().showDialog("创建失败",CreateTreatActivity.this,null,null);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            MyTools.getInstance().showDialog("创建失败",CreateTreatActivity.this,null);
+                            MyTools.getInstance().showDialog("创建失败",CreateTreatActivity.this,null,null);
                         }
                     }
 
                     @Override
                     public void onFailure(Throwable t) {
-                        MyTools.getInstance().showDialog("创建失败",CreateTreatActivity.this,null);
+                        MyTools.getInstance().showDialog("创建失败",CreateTreatActivity.this,null,null);
                     }
                 }).start();
     }
@@ -83,7 +83,7 @@ public class CreateTreatActivity extends BaseActivity implements View.OnClickLis
             if (!identity.equals("")){
                 startSubmitRequest(name,sex,identity,birthday,phone,address);
             }else {
-                MyTools.getInstance().showDialog("身份证号不能为空",CreateTreatActivity.this,null);
+                MyTools.getInstance().showDialog("身份证号不能为空",CreateTreatActivity.this,null,null);
             }
         }
     }

@@ -3,11 +3,15 @@ package com.example.simple.utils;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Build;
+import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,11 +20,13 @@ import androidx.core.app.ActivityCompat;
 
 import com.example.simple.AppClient;
 import com.example.simple.R;
+import com.example.simple.activity.LifePayActivity;
 import com.example.simple.activity.MovableActivity;
 import com.example.simple.activity.ParkingActivity;
 import com.example.simple.activity.ShowHospitalActivity;
 import com.example.simple.activity.SubwayActivity;
 import com.example.simple.activity.ViolationActivity;
+import com.example.simple.activity.WisdomBusActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.text.SimpleDateFormat;
@@ -103,16 +109,16 @@ public class MyTools {
         toast.setText(msg);
         toast.show();
     }
-    public void showDialog(String msg, Context context,DialogInterface.OnClickListener listener) {
+    public void showDialog(String msg, Context context,DialogInterface.OnClickListener positListener,DialogInterface.OnClickListener negativeListener) {
         if (builder==null){
             builder=new AlertDialog.Builder(context);
         }
         builder.setTitle("提示");
         builder.setMessage(msg);
         builder.setCancelable(false);
-        builder.setPositiveButton("确定", null);
-        if (listener!=null){
-            builder.setNegativeButton("取消", listener);
+        builder.setPositiveButton("确定", positListener);
+        if (negativeListener!=null){
+            builder.setNegativeButton("取消", negativeListener);
         }
         builder.show();
     }
@@ -161,6 +167,12 @@ public class MyTools {
             case "停车场":
                 intent=new Intent(context, ParkingActivity.class);
                 break;
+            case "智慧巴士":
+                intent=new Intent(context, WisdomBusActivity.class);
+                break;
+            case "生活缴费":
+                intent=new Intent(context, LifePayActivity.class);
+                break;
             default:
                 break;
         }
@@ -175,6 +187,22 @@ public class MyTools {
             if (!activity.isFinishing()){
                 activity.finish();
             }
+        }
+    }
+    public boolean isLocationEnabled(ContentResolver resolver) {
+        int locationMode = 0;
+        String locationProviders;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            try {
+                locationMode = Settings.Secure.getInt(resolver, Settings.Secure.LOCATION_MODE);
+            } catch (Settings.SettingNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            }
+            return locationMode != Settings.Secure.LOCATION_MODE_OFF;
+        } else {
+            locationProviders = Settings.Secure.getString(resolver, Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+            return !TextUtils.isEmpty(locationProviders);
         }
     }
 

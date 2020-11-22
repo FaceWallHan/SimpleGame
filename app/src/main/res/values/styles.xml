@@ -30,4 +30,8 @@
     <style name="some_text">
         <item name="android:textSize">15sp</item>
     </style>
+    <style name="bus_text">
+        <item name="background">@drawable/bg_stroke_blue</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>

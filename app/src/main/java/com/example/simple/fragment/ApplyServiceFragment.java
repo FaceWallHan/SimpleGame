@@ -94,7 +94,7 @@ public class ApplyServiceFragment extends Fragment implements TextView.OnEditorA
             if (is){
                 startActivity(MyTools.getInstance().judgmentIntent(str,view.getContext()));
             }else {
-                MyTools.getInstance().showDialog("请输入正确的服务！",view.getContext(),null);
+                MyTools.getInstance().showDialog("请输入正确的服务！",view.getContext(),null,null);
                 search_et.setText("");
             }
             return true;

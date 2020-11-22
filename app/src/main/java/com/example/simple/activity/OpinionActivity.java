@@ -51,9 +51,9 @@ public class OpinionActivity extends BaseActivity implements View.OnClickListene
                         public void onSuccess(JSONObject jsonObject) {
                             try {
                                 if (jsonObject.getString("RESULT").equals("S")){
-                                    MyTools.getInstance().showDialog("提交成功",OpinionActivity.this,null);
+                                    MyTools.getInstance().showDialog("提交成功",OpinionActivity.this,null,null);
                                 }else {
-                                    MyTools.getInstance().showDialog("提交失败",OpinionActivity.this,null);
+                                    MyTools.getInstance().showDialog("提交失败",OpinionActivity.this,null,null);
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();

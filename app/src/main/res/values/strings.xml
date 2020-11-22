@@ -64,6 +64,17 @@
     <string name="approach">进场时间：</string>
     <string name="appearance">出场时间：</string>
     <string name="charge">收费：</string>
+    <string name="parent_directory">返回上级目录</string>
+    <string name="next">下一步</string>
+    <string name="pathName">路线名称:</string>
+    <string name="cost">票价:</string>
+    <string name="mileage">里程:</string>
+    <string name="site">起始路线:</string>
+    <string name="runTime">运行时间:</string>
+    <string name="up_location">上车地点：</string>
+    <string name="down_location">下车地点：</string>
+    <string name="passenger_name">乘客姓名：</string>
+    <string name="travel_date">乘车日期：</string>
     <integer name="slide_time">2000</integer>
     <string-array name="sex_array">
         <item>男</item>

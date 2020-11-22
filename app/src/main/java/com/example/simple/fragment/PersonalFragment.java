@@ -129,7 +129,7 @@ public class PersonalFragment  extends Fragment implements View.OnClickListener 
                 startActivity(new Intent(view.getContext(), OpinionActivity.class));
                 break;
             case R.id.exit_login:
-                MyTools.getInstance().showDialog("是否确定退出登录？", view.getContext(), new DialogInterface.OnClickListener() {
+                MyTools.getInstance().showDialog("是否确定退出登录？", view.getContext(),null, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         MyTools.getInstance().setData(DataKeys.passWord,"");
