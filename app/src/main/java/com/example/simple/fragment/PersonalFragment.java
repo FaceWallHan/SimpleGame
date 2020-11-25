@@ -35,7 +35,7 @@ import java.util.Arrays;
 
 public class PersonalFragment  extends Fragment implements View.OnClickListener {
     private View view;
-    private static final int userId=1;
+    public static final int userId=1;
     private ImageView personal_head;
     private TextView personal_name;
     private String[] userInfo;

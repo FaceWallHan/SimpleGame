@@ -1,7 +1,5 @@
 package com.example.simple.activity;
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,10 +9,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -23,9 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import com.bumptech.glide.Glide;
@@ -37,8 +31,6 @@ import com.example.simple.utils.MyTools;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import static org.litepal.LitePalApplication.getContext;
 
 public class PersonInfoActivity extends BaseActivity implements View.OnClickListener,
                                                     ImageDialog.OnCenterItemClickListener{

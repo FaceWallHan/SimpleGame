@@ -2,12 +2,10 @@ package com.example.simple.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -22,9 +20,6 @@ import com.example.simple.bean.BeanAttend;
 import com.example.simple.bean.BeanDepartment;
 import com.example.simple.net.NetCall;
 import com.example.simple.net.VolleyTo;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;

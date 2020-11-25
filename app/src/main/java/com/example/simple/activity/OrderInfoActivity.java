@@ -1,8 +1,6 @@
 package com.example.simple.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -10,7 +8,6 @@ import androidx.annotation.Nullable;
 
 import com.example.simple.R;
 import com.example.simple.adapter.OrderInfoAdapter;
-import com.example.simple.bean.BeanOrder;
 import com.example.simple.bean.BeanOrderInfo;
 import com.example.simple.net.NetCall;
 import com.example.simple.net.VolleyTo;

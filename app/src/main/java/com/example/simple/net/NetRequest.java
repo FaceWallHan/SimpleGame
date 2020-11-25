@@ -67,7 +67,7 @@ public class NetRequest extends Thread {
 //                    //.addConverterFactory(GsonConverterFactory.create())
 //                    .build();
 //            NetClient client=retrofit.create(NetClient.class);
-            Call<ResponseBody> call=RetrofitClient.getInstance().getApi().getResource(url,objectMap);
+            Call<ResponseBody> call=RetrofitClient.getInstance().getApi().getResource(url);
             call.enqueue(new Callback<ResponseBody>() {
                 @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

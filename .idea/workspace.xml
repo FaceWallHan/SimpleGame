@@ -9,29 +9,20 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="1111" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="11111" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c183392-2d06-4e6b-928e-8ef2f1240af9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/LifePayActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/WisdomBusActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/WisdomBusFourActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/WisdomBusOneActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/WisdomBusThreeActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/WisdomBusTwoActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/adapter/WisdomBusAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/bean/BeanBus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/water_country.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/life_pay_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/wisdom_bus_four_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/wisdom_bus_item_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/wisdom_bus_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/wisdom_bus_one_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/wisdom_bus_three_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/wisdom_bus_two_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/wisdom_bus_utils_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/adapter/ManageAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/bean/BeanManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/fragment/AutoPayFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/fragment/PersonalManageFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/add_item.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/auto_pay_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/personal_manage_item_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/personal_manage_layout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -42,18 +33,35 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/AppClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/BaseActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/BaseActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/CreateTreatActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/CreateTreatActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/OpinionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/OpinionActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/GuideActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/GuideActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/HospitalInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/HospitalInfoActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/LifePayActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/LifePayActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/ModifyPassWordActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/ModifyPassWordActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/MovableActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/MovableActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/OrderInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/OrderInfoActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/PersonInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/PersonInfoActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/RegisterInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/RegisterInfoActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/SubwayActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/SubwayActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/ViolationDetailsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/ViolationDetailsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/WisdomBusFourActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/WisdomBusFourActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/WisdomBusOneActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/WisdomBusOneActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/WisdomBusThreeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/WisdomBusThreeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/WisdomBusTwoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/activity/WisdomBusTwoActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/adapter/AllServiceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/adapter/AllServiceAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/dialog/ModifyInfoDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/dialog/ModifyInfoDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/dialog/SettingDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/dialog/SettingDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/fragment/ApplyServiceFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/fragment/ApplyServiceFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/fragment/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/fragment/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/fragment/OrdinaryFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/fragment/OrdinaryFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/fragment/PersonalFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/fragment/PersonalFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/net/NetClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/net/NetClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/net/NetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/net/NetRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/simple/utils/MyTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/simple/utils/MyTools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/life_pay_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/life_pay_layout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,8 +95,8 @@
         <option value="Interface" />
         <option value="layoutResourceFile" />
         <option value="resourceFile" />
-        <option value="Class" />
         <option value="layoutResourceFile_vertical" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -125,12 +133,11 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Android-Project\SimpleGame\app\src\main\res\layout" />
-      <recent name="D:\Android-Project\SimpleGame\app\src\main\res\drawable" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Android-Project\SimpleGame\app\src\main\jniLibs" />
+      <recent name="D:\Android-Project\SimpleGame\app\src\main\res\xml" />
       <recent name="D:\Android-Project\SimpleGame\app\libs" />
-      <recent name="D:\Android-Project\SimpleGame\app\src\main\java\com\example\simple\newwork" />
-      <recent name="D:\Android-Project\SimpleGame\app\src\main\java\com\example\simple" />
+      <recent name="D:\Android-Project\SimpleGame\app\src\main\assets" />
     </key>
     <key name="android.template.301943775">
       <recent name="com.example.simple.activity" />
@@ -139,16 +146,17 @@
       <recent name="com.example.simple.activity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.simple.net" />
       <recent name="com.example.simple.activity" />
       <recent name="com.example.simple.utils" />
       <recent name="com.example.simple.adapter" />
-      <recent name="com.example.simple.net" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Android-Project\SimpleGame\app\src\main\jniLibs" />
-      <recent name="D:\Android-Project\SimpleGame\app\src\main\res\xml" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Android-Project\SimpleGame\app\src\main\res\layout" />
+      <recent name="D:\Android-Project\SimpleGame\app\src\main\res\drawable" />
       <recent name="D:\Android-Project\SimpleGame\app\libs" />
-      <recent name="D:\Android-Project\SimpleGame\app\src\main\assets" />
+      <recent name="D:\Android-Project\SimpleGame\app\src\main\java\com\example\simple\newwork" />
+      <recent name="D:\Android-Project\SimpleGame\app\src\main\java\com\example\simple" />
     </key>
   </component>
   <component name="RunManager">
@@ -267,10 +275,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="530" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1605968065972" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1605970763848">
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1606141227940">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1605970763848" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1606141227940" />
     <state x="566" y="271" width="403" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605275258571">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -287,38 +295,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="349" y="167" key="AndroidCreateResourceFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1602684512484" />
-    <state x="627" y="216" key="AndroidCreateXmlResourceDialog" timestamp="1606034321656">
+    <state x="627" y="216" key="AndroidCreateXmlResourceDialog" timestamp="1606130105741">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="627" y="216" key="AndroidCreateXmlResourceDialog/0.0.1536.824@0.0.1536.824" timestamp="1606034321656" />
+    <state x="627" y="216" key="AndroidCreateXmlResourceDialog/0.0.1536.824@0.0.1536.824" timestamp="1606130105741" />
     <state x="624" y="177" key="AndroidProcessChooserDialog" timestamp="1602771242927">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="624" y="177" key="AndroidProcessChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1602771242927" />
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1606030160296">
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1606130058007">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1606030160296" />
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1606130058007" />
     <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1604033991362">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604033991362" />
-    <state width="1493" height="320" key="GridCell.Tab.0.bottom" timestamp="1606043129843">
+    <state width="1493" height="286" key="GridCell.Tab.0.bottom" timestamp="1606312215283">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="320" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606043129843" />
-    <state width="1493" height="320" key="GridCell.Tab.0.center" timestamp="1606043129843">
+    <state width="1493" height="286" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606312215283" />
+    <state width="1493" height="286" key="GridCell.Tab.0.center" timestamp="1606312215283">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="320" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606043129843" />
-    <state width="1493" height="320" key="GridCell.Tab.0.left" timestamp="1606043129843">
+    <state width="1493" height="286" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606312215283" />
+    <state width="1493" height="286" key="GridCell.Tab.0.left" timestamp="1606312215283">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="320" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606043129843" />
-    <state width="1493" height="320" key="GridCell.Tab.0.right" timestamp="1606043129843">
+    <state width="1493" height="286" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606312215283" />
+    <state width="1493" height="286" key="GridCell.Tab.0.right" timestamp="1606312215283">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="320" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606043129843" />
+    <state width="1493" height="286" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606312215283" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1604150131212">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -343,10 +351,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="328" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1602771779705" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1606029490649">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1606220978509">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1606029490649" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1606220978509" />
     <state x="336" y="148" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1602771353976">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -20,8 +20,8 @@ public interface NetClient {
     /**GET请求*/
     //如果有@Url注解时，GET传入的Url可以省略。
 
-    @FormUrlEncoded
-    @POST
-    Call<ResponseBody> getResource(@Url String url, @FieldMap() Map<String,Object> map );
-    /**POST请求*/
+//    @FormUrlEncoded
+//    @POST
+//    Call<ResponseBody> getResource(@Url String url, @FieldMap() Map<String,Object> map );
+//    /**POST请求*/
 }

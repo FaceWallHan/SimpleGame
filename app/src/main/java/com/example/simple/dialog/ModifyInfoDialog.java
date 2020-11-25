@@ -1,9 +1,6 @@
 package com.example.simple.dialog;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,15 +9,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.example.simple.R;
-import com.example.simple.fragment.NewsChildFragment;
 
 public class ModifyInfoDialog extends DialogFragment implements View.OnClickListener {
     private View view;

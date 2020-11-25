@@ -6,20 +6,25 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.example.simple.R;
+import com.example.simple.fragment.AutoPayFragment;
+import com.example.simple.fragment.ExpertFragment;
+import com.example.simple.fragment.PersonalManageFragment;
 import com.example.simple.utils.MyTools;
 
-public class LifePayActivity extends BaseActivity {
-    private LocationClient mLocationClient;
-    private BDLocationListener mBDLocationListener;
-    //http://api.map.baidu.com/geocoder?output=json&location=23.131427,113.379763&ak=ciZzmcOPLAxrj49RcwUMOUgskNjOueUS
+public class LifePayActivity extends BaseActivity implements View.OnClickListener {
+    private TextView auto_pay,personal_id_manage;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,52 +32,38 @@ public class LifePayActivity extends BaseActivity {
          * 需要动态获取权限
          * */
         setContentView(R.layout.life_pay_layout);
-        mLocationClient=new LocationClient(getApplicationContext());
-        mBDLocationListener=new MyBDLocationListener();
-        mLocationClient.registerLocationListener(mBDLocationListener);
-        getLocation();
-        Log.d("11111111111111", "onCreate: "+ MyTools.getInstance().isLocationEnabled(getContentResolver()));
+        inView();
+        setTitleText("自动缴费");
+        replaceFragment(new AutoPayFragment());
     }
-    /** 获得所在位置经纬度及详细地址 */
-    public void getLocation() {
-        // 声明定位参数
-        LocationClientOption option = new LocationClientOption();
-        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);// 设置定位模式 高精度
-        option.setCoorType("bd09ll");// 设置返回定位结果是百度经纬度 默认gcj02
-        option.setScanSpan(5000);// 设置发起定位请求的时间间隔 单位ms
-        option.setIsNeedAddress(true);// 设置定位结果包含地址信息
-        option.setNeedDeviceDirect(true);// 设置定位结果包含手机机头 的方向
-        // 设置定位参数
-        mLocationClient.setLocOption(option);
-        // 启动定位
-        mLocationClient.start();
-
+    private void inView(){
+        auto_pay=findViewById(R.id.auto_pay);
+        personal_id_manage=findViewById(R.id.personal_id_manage);
+        auto_pay.setOnClickListener(this);
+        personal_id_manage.setOnClickListener(this);
     }
-    private class MyBDLocationListener implements BDLocationListener {
-        @Override
-        public void onReceiveLocation(BDLocation location) {
-            // 非空判断
-            if (location != null) {
-                // 根据BDLocation 对象获得经纬度以及详细地址信息
-                double latitude = location.getLatitude();
-                double longitude = location.getLongitude();
-                String address = location.getAddrStr();
-                Log.i("11111111", "address:" + address + " latitude:" + latitude
-                        + " longitude:" + longitude + "---");
-                if (mLocationClient.isStarted()) {
-                    // 获得位置之后停止定位
-                    mLocationClient.stop();
-                }
-            }
-        }
-    }
-
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mLocationClient != null) {
-            mLocationClient.unRegisterLocationListener(mBDLocationListener);
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.auto_pay:
+                setTitleText("自动缴费");
+                replaceFragment(new AutoPayFragment());
+                auto_pay.setBackgroundResource(R.drawable.bg_stroke);
+                personal_id_manage.setBackgroundResource(R.drawable.bg_stroke_white);
+                break;
+            case R.id.personal_id_manage:
+                setTitleText("户号管理");
+                replaceFragment(new PersonalManageFragment());
+                personal_id_manage.setBackgroundResource(R.drawable.bg_stroke);
+                auto_pay.setBackgroundResource(R.drawable.bg_stroke_white);
+                break;
         }
+    }
+    private void replaceFragment(Fragment fragment){
+        FragmentManager manager=getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.life_frame,fragment);
+        transaction.commit();
     }
 
 }

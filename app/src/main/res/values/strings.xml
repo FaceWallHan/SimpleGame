@@ -75,6 +75,8 @@
     <string name="down_location">下车地点：</string>
     <string name="passenger_name">乘客姓名：</string>
     <string name="travel_date">乘车日期：</string>
+    <string name="auto_pay">自动缴费</string>
+    <string name="personal_id_manage">户号管理</string>
     <integer name="slide_time">2000</integer>
     <string-array name="sex_array">
         <item>男</item>

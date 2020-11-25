@@ -1,18 +1,14 @@
 package com.example.simple.activity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
-import com.example.simple.AppClient;
 import com.example.simple.R;
-import com.example.simple.bean.BeanBus;
 import com.example.simple.utils.MyTools;
 
 import java.util.Calendar;

@@ -1,6 +1,8 @@
 package com.example.simple;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -24,6 +26,7 @@ import java.util.Map;
 public class AppClient extends LitePalApplication {
     @SuppressLint("StaticFieldLeak")
     private  static AppClient instance;
+    public   SharedPreferences preferences;
     private static RequestQueue requestQueue;
     private Map<String ,List<BeanServiceType>>child;
     private List<String>group;
@@ -38,6 +41,7 @@ public class AppClient extends LitePalApplication {
     public void onCreate() {
         super.onCreate();
         instance=this;
+        preferences= PreferenceManager.getDefaultSharedPreferences(this);
         requestQueue= Volley.newRequestQueue(this);
         child=new HashMap<>();
         group=new ArrayList<>();

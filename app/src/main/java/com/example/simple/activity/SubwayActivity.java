@@ -2,8 +2,6 @@ package com.example.simple.activity;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,7 +45,7 @@ public class SubwayActivity extends AppCompatActivity {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 startLocation();
             } else {
-                Toast.makeText(this, "拒绝权限", Toast.LENGTH_SHORT).show();
+                MyTools.getInstance().showToast("拒绝权限",this);
             }
         }
     }

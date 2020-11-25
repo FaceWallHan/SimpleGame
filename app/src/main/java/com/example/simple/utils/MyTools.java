@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.View;
@@ -59,7 +60,7 @@ public class MyTools {
 
     @SuppressLint("CommitPrefEdits")
     private MyTools() {
-        preferences= AppClient.getInstance().getSharedPreferences("simple", Context.MODE_PRIVATE);
+        preferences= AppClient.getInstance().preferences;
         editor = preferences.edit();
     }
     public void setData(String key, Object object) {

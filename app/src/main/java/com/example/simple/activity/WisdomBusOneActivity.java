@@ -3,26 +3,13 @@ package com.example.simple.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
 import com.example.simple.AppClient;
 import com.example.simple.R;
-import com.example.simple.adapter.WisdomBusAdapter;
 import com.example.simple.bean.BeanBus;
-import com.example.simple.net.NetCall;
-import com.example.simple.net.VolleyTo;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class WisdomBusOneActivity extends BaseActivity  {
 

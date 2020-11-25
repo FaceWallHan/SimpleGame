@@ -1,24 +1,19 @@
 package com.example.simple.activity;
 
-import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
@@ -28,11 +23,6 @@ import com.example.simple.fragment.HomeFragment;
 import com.example.simple.fragment.NewsFragment;
 import com.example.simple.fragment.PersonalFragment;
 import com.example.simple.utils.MyTools;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.bottomnavigation.LabelVisibilityMode;
-import com.google.android.material.navigation.NavigationView;
-
-import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +59,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
             }
         });
         replaceFragment(homeFragment);
+        String board= Build.BOARD;
+        String brand=Build.BRAND;
+        String os_version=System.getProperty("os.version");
+        String os_name=System.getProperty("os.name");
+        Log.d("111111111", "board:"+board+"---brand:"+brand+"---os_version:"+os_version+"---os_name:"+os_name);
     }
     private void inView(){
         navigationView=findViewById(R.id.nav_bar);

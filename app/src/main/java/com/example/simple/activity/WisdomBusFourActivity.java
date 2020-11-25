@@ -1,12 +1,8 @@
 package com.example.simple.activity;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -17,12 +13,10 @@ import com.example.simple.net.NetCall;
 import com.example.simple.net.VolleyTo;
 import com.example.simple.utils.MyTools;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class WisdomBusFourActivity extends BaseActivity {
     private  ArrayList<String>value;

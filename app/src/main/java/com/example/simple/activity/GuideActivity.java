@@ -18,7 +18,6 @@ import com.example.simple.R;
 import com.example.simple.adapter.ViewPagerAdapter;
 import com.example.simple.fragment.GuideFragment;
 import com.example.simple.net.NetCall;
-import com.example.simple.net.NetRequest;
 import com.example.simple.net.VolleyTo;
 import com.example.simple.utils.DataKeys;
 import com.example.simple.utils.MyTools;
@@ -60,7 +59,6 @@ public class GuideActivity extends AppCompatActivity {
             setContentView(R.layout.guide_layout);
             inView();
             startRequest();
-
         }else {
             startActivity(new Intent(this,MainActivity.class));
             finish();

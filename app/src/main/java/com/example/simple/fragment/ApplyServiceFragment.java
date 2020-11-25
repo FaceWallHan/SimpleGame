@@ -1,14 +1,11 @@
 package com.example.simple.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -19,16 +16,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.simple.AppClient;
 import com.example.simple.R;
-import com.example.simple.activity.MovableActivity;
-import com.example.simple.activity.OrderActivity;
-import com.example.simple.activity.SubwayActivity;
 import com.example.simple.adapter.AllServiceAdapter;
 import com.example.simple.bean.BeanServiceType;
 import com.example.simple.utils.MyTools;
 
-
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
